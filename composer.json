@@ -1,6 +1,6 @@
 {
   "name": "reader",
-  "description": "Simply a file reader, to be capable to digest different type of data files. starting ith csv",
+  "description": "Simply put, a file reader, to be capable to digest different type of data structure. starting with csv",
   "minimum-stability": "stable",
   "license": "MIN",
   "authors": [
