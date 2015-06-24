@@ -1,0 +1,19 @@
+<phpunit bootstrap="./tests/Bootstrap.php">
+
+    <testsuites>
+        <testsuite name="WebIt4Me\Reader test">
+            <directory>./tests/src</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="false" >
+            <directory>./src/*</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-clover" target="./tests/logs/reader.xml"/>
+    </logging>
+
+</phpunit>

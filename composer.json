@@ -1,6 +1,6 @@
 {
-  "name": "reader",
-  "description": "Simply a file reader, to be capable to digest different type of data files. starting ith csv",
+  "name": "webit4me/reader",
+  "description": "Simply put, a file reader, to be capable to digest different type of data structure. starting with csv",
   "minimum-stability": "stable",
   "license": "MIN",
   "authors": [
@@ -11,12 +11,13 @@
   ],
   "require-dev": {
     "phpunit/phpunit": "4.7.5",
-    "phpmd/phpmd": "2.2.3"
+    "phpmd/phpmd": "2.2.3",
+    "satooshi/php-coveralls": "dev-master"
   },
-  "Autoload":{
+  "autoload":{
     "psr-4":{
       "WebIt4Me\\Reader\\": "src/",
-      "WebIt4MeTest\\Reader\\": "tests/"
+      "WebIt4MeTest\\Reader\\": "tests/src"
     }
   }
 }
