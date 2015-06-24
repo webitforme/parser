@@ -1,0 +1,22 @@
+{
+  "name": "reader",
+  "description": "Simply a file reader, to be capable to digest different type of data files. starting ith csv",
+  "minimum-stability": "stable",
+  "license": "MIN",
+  "authors": [
+    {
+      "name": "Ali Bahman",
+      "email": "abn@webit4.me"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "4.7.5",
+    "phpmd/phpmd": "2.2.3"
+  },
+  "Autoload":{
+    "psr-4":{
+      "WebIt4Me\\Reader\\": "src/",
+      "WebIt4MeTest\\Reader\\": "tests/"
+    }
+  }
+}
