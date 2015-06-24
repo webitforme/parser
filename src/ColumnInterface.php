@@ -2,7 +2,12 @@
 
 namespace WebIt4Me\Reader;
 
-interface ColumnInterface {
+interface ColumnInterface
+{
+    /**
+     * @return int
+     */
+    public function getIndex();
 
     /**
      * @return string

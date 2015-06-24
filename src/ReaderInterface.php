@@ -2,13 +2,13 @@
 
 namespace WebIt4Me\Reader;
 
-interface ReaderInterface {
-
+interface ReaderInterface
+{
     /**
      * @param string $filePath
      * @return boolean
      */
-    public function openFile(string $filePath);
+    public function openFile($filePath);
 
     /**
      * @return ColumnInterface[]
@@ -18,25 +18,25 @@ interface ReaderInterface {
     /**
      * @return RowInterface
      */
-    public function readNextRow();
+    public function readRow();
 
     /**
      * @param int $rowNumber
      * @return RowInterface
      */
-    public function readRow(int $rowNumber);
+    public function readRowAt($rowNumber);
 
     /**
      * @param string $keyword
      * @return RowInterface
      */
-    public function findRow(string $keyword);
+    public function findRow($keyword);
 
     /**
      * @param string $keyword
      * @return RowInterface[]
      */
-    public function findAllRow(string $keyword);
+    public function findAllRow($keyword);
 
     /**
      * @param int $keyword
