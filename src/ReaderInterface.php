@@ -6,9 +6,8 @@ interface ReaderInterface
 {
     /**
      * @param string $filePath
-     * @return boolean
      */
-    public function openFile($filePath);
+    public function __construct($filePath);
 
     /**
      * @return ColumnInterface[]
@@ -43,6 +42,4 @@ interface ReaderInterface
      * @return RowInterface[]
      */
     public function readAll();
-
-    public function closeFile();
 }
