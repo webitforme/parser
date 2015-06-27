@@ -1,0 +1,4 @@
+src_dir: ./
+coverage_clover: ./tests/logs/reader.xml
+json_path: ./tests/logs/sm.json
+

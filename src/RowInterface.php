@@ -2,7 +2,7 @@
 
 namespace WebIt4Me\Reader;
 
-interface RowInterface
+interface RowInterface extends \Iterator, \Countable
 {
     /**
      * Each row must be aware of its own index in the reader object.
@@ -11,6 +11,13 @@ interface RowInterface
      * @return int
      */
     public function getIndex();
+
+    /**
+     * To return an zero based array to map column index with their name (title).
+     * i.e. [0 => 'First Column', 1 => 'And the second']
+     * @return null|array
+     */
+    public function getColumnNames();
 
     /**
      * @return ColumnInterface[]

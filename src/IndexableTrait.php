@@ -14,7 +14,7 @@ trait IndexableTrait
      */
     public function setIndex($index)
     {
-        if (!filter_var($index, FILTER_VALIDATE_INT)) {
+        if (false === filter_var($index, FILTER_VALIDATE_INT)) {
             throw new \InvalidArgumentException('$index must be integer.');
         }
 

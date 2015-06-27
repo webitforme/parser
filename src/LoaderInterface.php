@@ -2,15 +2,16 @@
 
 namespace WebIt4Me\Reader;
 
-interface ReaderInterface
+interface LoaderInterface extends \Iterator
 {
     /**
      * @param string $filePath
+     * @param boolean $firstLineIsFiledName
      */
-    public function __construct($filePath);
+    public function __construct($filePath, $firstLineIsFiledName = true);
 
     /**
-     * @return ColumnInterface[]
+     * @return string[]
      */
     public function getColumnNames();
 
@@ -20,10 +21,10 @@ interface ReaderInterface
     public function readRow();
 
     /**
-     * @param int $rowNumber
+     * @param int $rowIndex
      * @return RowInterface
      */
-    public function readRowAt($rowNumber);
+    public function readRowAt($rowIndex);
 
     /**
      * @param string $keyword
