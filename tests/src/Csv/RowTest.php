@@ -5,7 +5,7 @@ namespace WebIt4MeTest\Reader\Csv;
 use WebIt4Me\Reader\Csv\Column;
 use WebIt4Me\Reader\Csv\Row;
 
-class ColumnTest extends \PHPUnit_Framework_TestCase
+class RowTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider dpRow

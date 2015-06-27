@@ -23,7 +23,7 @@ before_script:
 
 script:
   - ./vendor/bin/phpunit -c phpunit.xml
-  - ./vendor/bin/phpmd ./src text ruleset.xml
+  # ./vendor/bin/phpmd ./src text ruleset.xml
 
 after_script:
   - ./vendor/bin/coveralls -c .coveralls.yml -v

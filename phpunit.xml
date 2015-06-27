@@ -7,10 +7,7 @@
     </testsuites>
 
     <filter>
-        <whitelist processUncoveredFilesFromWhitelist="false" >
-            <file>./src/TimeZone.php</file>
-            <file>./src/AbstractTimeZoneEnum.php</file>
-        </whitelist>
+        <whitelist processUncoveredFilesFromWhitelist="false" />
     </filter>
 
     <logging>
