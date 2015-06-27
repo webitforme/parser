@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/webit4me/reader.svg?branch=v1.0)](https://travis-ci.org/webit4me/reader)
+[![Build Status](https://travis-ci.org/webit4me/reader.svg?branch=master)](https://travis-ci.org/webit4me/reader)
 [![Coverage Status](https://coveralls.io/repos/webit4me/reader/badge.svg)](https://coveralls.io/r/webit4me/reader)
 
 # reader
