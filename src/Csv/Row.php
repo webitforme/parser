@@ -5,10 +5,18 @@ namespace WebIt4Me\Reader\Csv;
 use WebIt4Me\Reader\ColumnInterface;
 use WebIt4Me\Reader\ColumnsInterface;
 use WebIt4Me\Reader\IndexableTrait;
+use WebIt4Me\Reader\IterableTrait;
 use WebIt4Me\Reader\RowInterface;
 
+/**
+ * Class Row
+ * @package WebIt4Me\Reader\Csv
+ * @property-read Column[] $iterable handles in IterableTrait
+ * @see IterableTrait
+ */
 class Row implements RowInterface
 {
+    use IterableTrait;
     use IndexableTrait;
 
     const ERR_MSG_BAD_NAME = 'There is no column named %s in the row.';
@@ -16,12 +24,6 @@ class Row implements RowInterface
 
     /** @var array */
     private $columnNames;
-
-    /** @var int */
-    private $pointer = 0;
-
-    /** @var Column[] */
-    private $columns = [];
 
     /**
      * @param int $index
@@ -54,7 +56,7 @@ class Row implements RowInterface
      */
     public function getColumns()
     {
-        return $this->columns;
+        return $this->iterable;
     }
 
     /**
@@ -67,7 +69,7 @@ class Row implements RowInterface
     public function getColumn($columnName)
     {
         foreach ($this as $column) {
-            if ($column->getName() === $columnName){
+            if ($column->getName() === $columnName) {
                 return $column;
             }
         }
@@ -82,60 +84,11 @@ class Row implements RowInterface
      */
     public function getColumnAt($columnIndex)
     {
-        if (!isset($this->columns[$columnIndex])) {
+        if (!isset($this->iterable[$columnIndex])) {
             throw new \OutOfRangeException (sprintf(self::ERR_MSG_BAD_NAME, $columnIndex, $this->count()));
         }
 
-        return $this->columns[$columnIndex];
-    }
-
-
-    /**
-     * @link http://php.net/manual/en/iterator.current.php
-     * @return Column.
-     */
-    public function current()
-    {
-        return $this->columns[$this->pointer];
-    }
-
-    /**
-     * @link http://php.net/manual/en/iterator.next.php
-     */
-    public function next()
-    {
-        $this->pointer++;
-    }
-
-    /**
-     * Return the key of the current element
-     * @link http://php.net/manual/en/iterator.key.php
-     * @return int scalar on success, or null on failure.
-     */
-    public function key()
-    {
-        return $this->pointer;
-    }
-
-    /**
-     * Checks if current position is valid
-     * @link http://php.net/manual/en/iterator.valid.php
-     * @return boolean The return value will be casted to boolean and then evaluated.
-     * Returns true on success or false on failure.
-     */
-    public function valid()
-    {
-        return isset($this->columns[$this->pointer]);
-    }
-
-    /**
-     * Rewind the Iterator to the first element
-     * @link http://php.net/manual/en/iterator.rewind.php
-     * @return void Any returned value is ignored.
-     */
-    public function rewind()
-    {
-        $this->pointer = 0;
+        return $this->iterable[$columnIndex];
     }
 
     /**
@@ -145,9 +98,8 @@ class Row implements RowInterface
      */
     public function count()
     {
-        return count($this->columns);
+        return count($this->iterable);
     }
-
 
     /**
      * Receives a list of values for all columns and create Column object for each and store it
@@ -162,7 +114,7 @@ class Row implements RowInterface
                 $columnValue,
                 $this->getColumnNameForIndex($counter));
 
-            $this->columns[$counter] = $column;
+            $this->iterable[$counter] = $column;
             $counter++;
         }
 

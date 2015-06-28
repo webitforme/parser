@@ -2,11 +2,21 @@
 
 namespace WebIt4Me\Reader\Csv;
 
+use WebIt4Me\Reader\IterableTrait;
 use WebIt4Me\Reader\LoaderInterface;
 use WebIt4Me\Reader\RowInterface;
 
+/**
+ * Class Loader
+ * @package WebIt4Me\Reader\Csv
+ *
+ * @property-read Row[] $iterable handles in IterableTrait
+ * @see IterableTrait
+ */
 class Loader implements LoaderInterface
 {
+    use IterableTrait;
+
     const DELIMITER = ',';
 
     const ERR_MSG_FAILED_TO_OPEN_FILE = 'Failed to open "%s" to read';
@@ -14,17 +24,8 @@ class Loader implements LoaderInterface
 
     private $handler;
 
-    /** @var int */
-    private $pointer = 0;
-
-    /** @var Row[] */
-    private $rows;
-
     /** @var string */
     private $filePath;
-
-    /** @var boolean */
-    private $firstLineIsFiledName;
 
     /** @var  array */
     private $columnNames;
@@ -32,18 +33,16 @@ class Loader implements LoaderInterface
     /**
      * @param string $filePath
      */
-    public function __construct($filePath, $firstLineIsFiledName = true)
+    public function __construct($filePath)
     {
         ini_set('auto_detect_line_endings', true);
 
         $this->filePath = $filePath;
-        $this->firstLineIsFiledName = $firstLineIsFiledName;
 
         $this->openFile();
 
-        if (true === $this->firstLineIsFiledName) {
-            $this->setColumnNames();
-        }
+        $this->setColumnNames();
+
     }
 
     /**
@@ -66,12 +65,12 @@ class Loader implements LoaderInterface
         }
 
         $row = new Row(
-            count($this->rows),
+            count($this->iterable),
             $nextLine,
             $this->getColumnNames()
         );
 
-        $this->rows[] = $row;
+        $this->iterable[] = $row;
 
         return $row;
     }
@@ -82,19 +81,19 @@ class Loader implements LoaderInterface
      */
     public function readRowAt($rowIndex)
     {
-        if (isset($this->rows[$rowIndex])) {
-            return $this->rows[$rowIndex];
+        if (isset($this->iterable[$rowIndex])) {
+            return $this->iterable[$rowIndex];
         }
 
-        $counter = count($this->rows);
-        while (($row = $this->readRow()) !== false){
+        $counter = count($this->iterable);
+        while (($row = $this->readRow()) !== false) {
             if ($rowIndex === $counter) {
                 return $row;
             }
             $counter++;
         }
 
-        throw new \OutOfRangeException(sprintf(self::ERR_MSG_ROW_BAD_OFFSET, $rowIndex, count($this->rows)));
+        throw new \OutOfRangeException(sprintf(self::ERR_MSG_ROW_BAD_OFFSET, $rowIndex, count($this->iterable)));
     }
 
     /**
@@ -114,16 +113,16 @@ class Loader implements LoaderInterface
     {
         $this->loadAllIfNotYet();
 
-        $rowsWithMatchingValue = [];
-        foreach ($this->rows as $row) {
+        $matchingRows = [];
+        foreach ($this->iterable as $row) {
             foreach ($row as $column) {
                 if (strpos($column->getValue(), $keyword)) {
-                    $rowsWithMatchingValue[$row->getIndex()] = $row;
+                    $matchingRows[$row->getIndex()] = $row;
                 }
             }
         }
 
-        return $rowsWithMatchingValue;
+        return $matchingRows;
     }
 
     /**
@@ -131,67 +130,16 @@ class Loader implements LoaderInterface
      */
     public function readAll()
     {
-        while ($this->readRow() !== false){
-            $a = 1;
-        }
+        while ($this->readRow() !== false) ;
 
-        return $this->rows;
-    }
-
-    /**
-     * Return the current row
-     * @link http://php.net/manual/en/iterator.current.php
-     * @return Row
-     */
-    public function current()
-    {
-        return $this->rows[$this->pointer];
-    }
-
-    /**
-     * Move forward to next row
-     * @link http://php.net/manual/en/iterator.next.php
-     */
-    public function next()
-    {
-        $this->pointer++;
-    }
-
-    /**
-     * Return the key of the current row
-     * @link http://php.net/manual/en/iterator.key.php
-     * @return mixed scalar on success, or null on failure.
-     */
-    public function key()
-    {
-        return $this->pointer;
-    }
-
-    /**
-     * Checks if current position is valid
-     * @link http://php.net/manual/en/iterator.valid.php
-     * @return boolean
-     */
-    public function valid()
-    {
-        $this->loadAllIfNotYet();
-
-        return isset($this->rows[$this->pointer]);
+        return $this->iterable;
     }
 
     private function loadAllIfNotYet()
     {
-        if (count($this->rows) === 0 ) {
+        if (count($this->iterable) === 0) {
             $this->readAll();
         }
-    }
-    /**
-     * Rewind the Iterator to the first row
-     * @link http://php.net/manual/en/iterator.rewind.php
-     */
-    public function rewind()
-    {
-        $this->pointer = 0;
     }
 
     /**
@@ -233,7 +181,7 @@ class Loader implements LoaderInterface
     }
 
 
-    function __destruct()
+    public function __destruct()
     {
         $this->closeFile();
     }

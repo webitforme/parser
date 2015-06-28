@@ -6,9 +6,8 @@ interface LoaderInterface extends \Iterator
 {
     /**
      * @param string $filePath
-     * @param boolean $firstLineIsFiledName
      */
-    public function __construct($filePath, $firstLineIsFiledName = true);
+    public function __construct($filePath);
 
     /**
      * @return string[]
