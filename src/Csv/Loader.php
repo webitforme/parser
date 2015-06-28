@@ -2,6 +2,7 @@
 
 namespace WebIt4Me\Reader\Csv;
 
+use WebIt4Me\Reader\AbstractFileReader;
 use WebIt4Me\Reader\IterableTrait;
 use WebIt4Me\Reader\LoaderInterface;
 use WebIt4Me\Reader\RowInterface;
@@ -17,15 +18,14 @@ class Loader implements LoaderInterface
 {
     use IterableTrait;
 
-    const DELIMITER = ',';
-
     const ERR_MSG_FAILED_TO_OPEN_FILE = 'Failed to open "%s" to read';
     const ERR_MSG_ROW_BAD_OFFSET = 'There is no index %d since the are only %d rows in the CSV file';
 
-    private $handler;
-
     /** @var string */
     private $filePath;
+
+    /** @var Reader */
+    private $fileReader;
 
     /** @var  array */
     private $columnNames;
@@ -35,14 +35,8 @@ class Loader implements LoaderInterface
      */
     public function __construct($filePath)
     {
-        ini_set('auto_detect_line_endings', true);
-
         $this->filePath = $filePath;
-
-        $this->openFile();
-
         $this->setColumnNames();
-
     }
 
     /**
@@ -58,7 +52,7 @@ class Loader implements LoaderInterface
      */
     public function readRow()
     {
-        $nextLine = $this->readLine();
+        $nextLine = $this->getFileReader()->readLine();
 
         if (false === $nextLine) {
             return false;
@@ -147,42 +141,14 @@ class Loader implements LoaderInterface
      */
     private function setColumnNames()
     {
-        $this->columnNames = $this->readLine();
+        $this->columnNames = $this->getFileReader()->readLine();
     }
 
-    /**
-     * Returns an array of all values in the next line or false if its end of the file
-     * @return array|false
-     */
-    private function readLine()
+    private function getFileReader()
     {
-        return ($row = fgetcsv($this->handler, 1000, self::DELIMITER)) !== false ?
-            $row :
-            false;
-    }
-
-    /**
-     * @throws \Exception
-     */
-    private function openFile()
-    {
-        if (($handle = fopen($this->filePath, "r")) === false) {
-            throw new \Exception(sprintf(self::ERR_MSG_FAILED_TO_OPEN_FILE, $this->filePath));
+        if (is_null($this->fileReader)) {
+            $this->fileReader = new Reader($this->filePath);
         }
-
-        $this->handler = $handle;
-    }
-
-    private function closeFile()
-    {
-        if (!is_null($this->handler)) {
-            fclose($this->handler);
-        }
-    }
-
-
-    public function __destruct()
-    {
-        $this->closeFile();
+        return $this->fileReader;
     }
 }

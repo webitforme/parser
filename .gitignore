@@ -5,5 +5,7 @@ composer.phar
 composer.lock
 vendor/
 
+tests/logs
+
 
 

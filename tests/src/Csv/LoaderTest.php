@@ -28,7 +28,7 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
 //        $row5 = $loader->readRowAt(8);
 //        $b = 1;
 
-//        $a = $loader->readAll();
+        $a = $loader->readAll();
 
         foreach ($loader as $key => $row)
         {
