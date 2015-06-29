@@ -27,15 +27,9 @@ interface LoaderInterface extends \Iterator
 
     /**
      * @param string $keyword
-     * @return RowInterface
-     */
-    public function findRow($keyword);
-
-    /**
-     * @param string $keyword
      * @return RowInterface[]
      */
-    public function findAllRow($keyword);
+    public function search($keyword);
 
     /**
      * @param int $keyword

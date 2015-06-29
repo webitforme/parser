@@ -2,9 +2,11 @@
 
 namespace WebIt4Me\Reader;
 
-class AbstractFileReader implements FileReaderInterface
+abstract class AbstractFileReader implements FileReaderInterface
 {
     const LINE_LENGTH =4096;
+
+    const ERR_MSG_FAILED_TO_OPEN_FILE = 'Failed to open "%s" to read';
 
     protected $handler;
 
@@ -25,7 +27,7 @@ class AbstractFileReader implements FileReaderInterface
     {
         if (is_null($this->handler)) {
 
-            if (($handle = fopen($filePath, "r")) === false) {
+            if (($handle = @fopen($filePath, "r")) === false) {
                 throw new \Exception(sprintf(self::ERR_MSG_FAILED_TO_OPEN_FILE, $filePath));
             }
 
@@ -37,18 +39,5 @@ class AbstractFileReader implements FileReaderInterface
     public function readLine()
     {
         return fgets($this->handler, self::LINE_LENGTH);
-    }
-
-    public function closeFile()
-    {
-        if (!is_null($this->handler)) {
-            fclose($this->handler);
-        }
-    }
-
-
-    public function __destruct()
-    {
-//        $this->closeFile();
     }
 }

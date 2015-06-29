@@ -35,7 +35,7 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
             echo $row->getColumn('policyID')->getName() .' : '. $row->getColumn('policyID')->getValue() . PHP_EOL;
         }
 
-        $searchAll = $loader->findAllRow('43');
+        $searchAll = $loader->search('43');
 
         $a = 1;
     }

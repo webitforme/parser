@@ -18,7 +18,6 @@ class Loader implements LoaderInterface
 {
     use IterableTrait;
 
-    const ERR_MSG_FAILED_TO_OPEN_FILE = 'Failed to open "%s" to read';
     const ERR_MSG_ROW_BAD_OFFSET = 'There is no index %d since the are only %d rows in the CSV file';
 
     /** @var string */
@@ -92,18 +91,9 @@ class Loader implements LoaderInterface
 
     /**
      * @param string $keyword
-     * @return RowInterface
-     */
-    public function findRow($keyword)
-    {
-        // TODO: Implement findRow() method.
-    }
-
-    /**
-     * @param string $keyword
      * @return RowInterface[]
      */
-    public function findAllRow($keyword)
+    public function search($keyword)
     {
         $this->loadAllIfNotYet();
 

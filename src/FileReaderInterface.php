@@ -13,9 +13,4 @@ interface FileReaderInterface
      * @return string
      */
     public function readLine();
-
-    /**
-     * @return null
-     */
-    public function closeFile();
 }
