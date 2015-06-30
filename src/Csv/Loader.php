@@ -29,6 +29,7 @@ class Loader implements LoaderInterface
     /** @var  array */
     private $columnNames;
 
+    /** @var bool */
     private $reachedToLastLine = false;
 
     /**
