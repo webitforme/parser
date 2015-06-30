@@ -29,6 +29,8 @@ class Loader implements LoaderInterface
     /** @var  array */
     private $columnNames;
 
+    private $reachedToLastLine = false;
+
     /**
      * @param string $filePath
      */
@@ -54,6 +56,7 @@ class Loader implements LoaderInterface
         $nextLine = $this->getFileReader()->readLine();
 
         if (false === $nextLine) {
+            $this->reachedToLastLine = true;
             return false;
         }
 
@@ -100,8 +103,8 @@ class Loader implements LoaderInterface
         $matchingRows = [];
         foreach ($this->iterable as $row) {
             foreach ($row as $column) {
-                if (strpos($column->getValue(), $keyword)) {
-                    $matchingRows[$row->getIndex()] = $row;
+                if (strpos($column->getValue(), $keyword) !== false) {
+                    $matchingRows[] = $row;
                 }
             }
         }
@@ -121,7 +124,7 @@ class Loader implements LoaderInterface
 
     private function loadAllIfNotYet()
     {
-        if (count($this->iterable) === 0) {
+        if (!$this->reachedToLastLine) {
             $this->readAll();
         }
     }

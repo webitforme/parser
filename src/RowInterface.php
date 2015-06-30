@@ -35,4 +35,16 @@ interface RowInterface extends \Iterator, \Countable
      * @return ColumnsInterface
      */
     public function getColumnAt($columnIndex);
+
+    /**
+     * Returns a key/value set of all existing columns in the row
+     * @return array
+     */
+    public function toArray();
+
+    /**
+     * Returns a string of all the column values, comma separated
+     * @return string
+     */
+    public function toString();
 }

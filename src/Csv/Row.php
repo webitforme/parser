@@ -131,4 +131,29 @@ class Row implements RowInterface
             $this->getColumnNames()[$index] :
             null;
     }
+
+    /**
+     * Returns a key/value set of all existing columns in the row
+     * @return array
+     */
+    public function toArray()
+    {
+        $array = [];
+
+        /** @var Column $column */
+        foreach ($this->iterable as $column) {
+            $array[$column->getName()] = $column->getValue();
+        }
+
+        return $array;
+    }
+
+    /**
+     * Returns a string of all the column values, comma separated
+     * @return string
+     */
+    public function toString()
+    {
+        return implode(',', $this->toArray());
+    }
 }
