@@ -15,11 +15,6 @@ interface LoaderInterface extends \Iterator
     public function getColumnNames();
 
     /**
-     * @return RowInterface
-     */
-    public function readRow();
-
-    /**
      * @param int $rowIndex
      * @return RowInterface
      */
@@ -35,5 +30,5 @@ interface LoaderInterface extends \Iterator
      * @param int $keyword
      * @return RowInterface[]
      */
-    public function readAll();
+    public function readAllRows();
 }
