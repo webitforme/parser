@@ -1,0 +1,193 @@
+<html>
+    <head>
+        <script
+            type="text/javascript"
+            src="../../js/jquery-1.4.2.min.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../../syntax_highlighter/scripts/shCore.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../../syntax_highlighter/scripts/shBrushJScript.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../../syntax_highlighter/scripts/shBrushPhp.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../../syntax_highlighter/scripts/shBrushXml.js">
+        </script>
+        <link
+            href="../../syntax_highlighter/styles/shCore.css" rel="stylesheet"
+            type="text/css"
+        />
+        <link
+            href="../../syntax_highlighter/styles/shCoreEclipse.css"
+            rel="stylesheet" type="text/css"
+        />
+        <link
+            href="../../syntax_highlighter/styles/shThemeWordpress.css"
+            rel="stylesheet" type="text/css"
+        />
+    </head>
+    <body>
+        <pre class="brush: php">&lt;?php
+
+namespace WebIt4Me\Reader\Csv;
+
+use WebIt4Me\Reader\AbstractFileReader;
+use WebIt4Me\Reader\IterableTrait;
+use WebIt4Me\Reader\LoaderInterface;
+use WebIt4Me\Reader\RowInterface;
+
+/**
+ * Class Loader
+ * @package WebIt4Me\Reader\Csv
+ *
+ * @property-read Row[] $iterable handles in IterableTrait
+ * @see IterableTrait
+ */
+class Loader implements LoaderInterface
+{
+    use IterableTrait;
+
+    const ERR_MSG_ROW_BAD_OFFSET = 'There is no index %d since the are only %d rows in the CSV file';
+
+    /** @var string */
+    private $filePath;
+
+    /** @var Reader */
+    private $fileReader;
+
+    /** @var  array */
+    private $columnNames;
+
+    /** @var bool */
+    private $reachedToLastLine = false;
+
+    /**
+     * @param string $filePath
+     */
+    public function __construct($filePath)
+    {
+        $this-&gt;filePath = $filePath;
+        $this-&gt;setColumnNames();
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getColumnNames()
+    {
+        return $this-&gt;columnNames;
+    }
+
+    /**
+     * @return RowInterface
+     */
+    public function readRow()
+    {
+        $nextLine = $this-&gt;getFileReader()-&gt;readLine();
+
+        if (false === $nextLine) {
+            $this-&gt;reachedToLastLine = true;
+            return false;
+        }
+
+        $row = new Row(
+            count($this-&gt;iterable),
+            $nextLine,
+            $this-&gt;getColumnNames()
+        );
+
+        $this-&gt;iterable[] = $row;
+
+        return $row;
+    }
+
+    /**
+     * @param int $rowIndex
+     * @return RowInterface
+     */
+    public function readRowAt($rowIndex)
+    {
+        if (isset($this-&gt;iterable[$rowIndex])) {
+            return $this-&gt;iterable[$rowIndex];
+        }
+
+        $counter = count($this-&gt;iterable);
+        while (($row = $this-&gt;readRow()) !== false) {
+            if ($rowIndex === $counter) {
+                return $row;
+            }
+            $counter++;
+        }
+
+        throw new \OutOfRangeException(sprintf(self::ERR_MSG_ROW_BAD_OFFSET, $rowIndex, count($this-&gt;iterable)));
+    }
+
+    /**
+     * @param string $keyword
+     * @return RowInterface[]
+     */
+    public function search($keyword)
+    {
+        $this-&gt;loadAllIfNotYet();
+
+        $matchingRows = [];
+        foreach ($this-&gt;iterable as $row) {
+            foreach ($row as $column) {
+                if (strpos($column-&gt;getValue(), $keyword) !== false) {
+                    $matchingRows[] = $row;
+                }
+            }
+        }
+
+        return $matchingRows;
+    }
+
+    /**
+     * @return RowInterface[]
+     */
+    public function readAll()
+    {
+        while ($this-&gt;readRow() !== false) ;
+
+        return $this-&gt;iterable;
+    }
+
+    private function loadAllIfNotYet()
+    {
+        if (!$this-&gt;reachedToLastLine) {
+            $this-&gt;readAll();
+        }
+    }
+
+    /**
+     * This method has to be run first think before reading/storing any other line
+     */
+    private function setColumnNames()
+    {
+        $this-&gt;columnNames = $this-&gt;getFileReader()-&gt;readLine();
+    }
+
+    private function getFileReader()
+    {
+        if (is_null($this-&gt;fileReader)) {
+            $this-&gt;fileReader = new Reader($this-&gt;filePath);
+        }
+        return $this-&gt;fileReader;
+    }
+}
+</pre>
+        <script type="text/javascript">
+             SyntaxHighlighter.all();
+             jQuery('.gutter div').each(function(key, data){
+                jQuery(data).prepend('<a name="L'+jQuery(data).text()+'"/>');
+             });
+        </script>
+    </body>
+</html>

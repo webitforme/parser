@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <script
+            type="text/javascript"
+            src="../js/jquery-1.4.2.min.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shCore.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shBrushJScript.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shBrushPhp.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shBrushXml.js">
+        </script>
+        <link
+            href="../syntax_highlighter/styles/shCore.css" rel="stylesheet"
+            type="text/css"
+        />
+        <link
+            href="../syntax_highlighter/styles/shCoreEclipse.css"
+            rel="stylesheet" type="text/css"
+        />
+        <link
+            href="../syntax_highlighter/styles/shThemeWordpress.css"
+            rel="stylesheet" type="text/css"
+        />
+    </head>
+    <body>
+        <pre class="brush: php">&lt;?php
+
+namespace WebIt4Me\Reader;
+
+interface RowInterface extends \Iterator, \Countable
+{
+    /**
+     * Each row must be aware of its own index in the reader object.
+     * This will be used to get specific row
+     * @see ReaderInterface::readRowAt()
+     * @return int
+     */
+    public function getIndex();
+
+    /**
+     * To return an zero based array to map column index with their name (title).
+     * i.e. [0 =&gt; 'First Column', 1 =&gt; 'And the second']
+     * @return null|array
+     */
+    public function getColumnNames();
+
+    /**
+     * @return ColumnInterface[]
+     */
+    public function getColumns();
+
+    /**
+     * @param string $columnName
+     * @return ColumnInterface
+     */
+    public function getColumn($columnName);
+
+    /**
+     * @param int $columnIndex
+     * @return ColumnsInterface
+     */
+    public function getColumnAt($columnIndex);
+
+    /**
+     * Returns a key/value set of all existing columns in the row
+     * @return array
+     */
+    public function toArray();
+
+    /**
+     * Returns a string of all the column values, comma separated
+     * @return string
+     */
+    public function toString();
+}
+</pre>
+        <script type="text/javascript">
+             SyntaxHighlighter.all();
+             jQuery('.gutter div').each(function(key, data){
+                jQuery(data).prepend('<a name="L'+jQuery(data).text()+'"/>');
+             });
+        </script>
+    </body>
+</html>

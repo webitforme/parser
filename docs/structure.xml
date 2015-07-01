@@ -1,0 +1,1820 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="API Documentation" version="2.8.3">
+  <partials/>
+  <file path="AbstractColumn.php" generated-path="AbstractColumn.html" hash="134b52d2881e3a0c6cf31b8b44e3afd4" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="WebIt4Me\Reader" line="5" package="Default">
+      <extends/>
+      <implements>\WebIt4Me\Reader\ColumnInterface</implements>
+      <name>AbstractColumn</name>
+      <full_name>\WebIt4Me\Reader\AbstractColumn</full_name>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="5" description="Default"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader" line="10" package="Default">
+        <name>$value</name>
+        <full_name>\WebIt4Me\Reader\AbstractColumn::value</full_name>
+        <default></default>
+        <docblock line="10">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="10" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader" line="13" package="Default">
+        <name>$name</name>
+        <full_name>\WebIt4Me\Reader\AbstractColumn::name</full_name>
+        <default></default>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="13" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader" line="8" package="Default">
+        <name>$index</name>
+        <full_name>\WebIt4Me\Reader\IndexableTrait::index</full_name>
+        <default></default>
+        <docblock line="8">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="8" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="20" package="Default">
+        <name>__construct</name>
+        <full_name>\WebIt4Me\Reader\AbstractColumn::__construct()</full_name>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="20" description="" type="integer" variable="$index">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="20" description="" type="string" variable="$value">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="20" description="" type="null" variable="$name">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$index</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default>null</default>
+          <type>null</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="32" package="Default">
+        <name>setName</name>
+        <full_name>\WebIt4Me\Reader\AbstractColumn::setName()</full_name>
+        <docblock line="32">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="32" description="" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="44" package="Default">
+        <name>getName</name>
+        <full_name>\WebIt4Me\Reader\AbstractColumn::getName()</full_name>
+        <docblock line="44">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="44" description="" type="string">
+            <type>string</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\ColumnInterface::getName()" refers="\WebIt4Me\Reader\ColumnInterface::getName()" link="/classes/WebIt4Me.Reader.ColumnInterface.html#method_getName"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="52" package="Default">
+        <name>getValue</name>
+        <full_name>\WebIt4Me\Reader\AbstractColumn::getValue()</full_name>
+        <docblock line="52">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="52" description="" type="string">
+            <type>string</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\ColumnInterface::getValue()" refers="\WebIt4Me\Reader\ColumnInterface::getValue()" link="/classes/WebIt4Me.Reader.ColumnInterface.html#method_getValue"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="WebIt4Me\Reader" line="60" package="Default">
+        <name>makeUpName</name>
+        <full_name>\WebIt4Me\Reader\AbstractColumn::makeUpName()</full_name>
+        <docblock line="60">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="60" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="15" package="Default">
+        <name>setIndex</name>
+        <full_name>\WebIt4Me\Reader\IndexableTrait::setIndex()</full_name>
+        <docblock line="15">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="15" description="" type="" variable="$index"/>
+          <tag name="return" line="15" description="" type="\WebIt4Me\Reader\AbstractColumn">
+            <type>\WebIt4Me\Reader\AbstractColumn</type>
+          </tag>
+          <tag name="throw" line="15" description="" type="\InvalidArgumentException">
+            <type>\InvalidArgumentException</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$index</name>
+          <default></default>
+          <type/>
+        </argument>
+        <inherited_from>\WebIt4Me\Reader\IndexableTrait</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="29" package="Default">
+        <name>getIndex</name>
+        <full_name>\WebIt4Me\Reader\IndexableTrait::getIndex()</full_name>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="29" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\IndexableTrait</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="5" code="PPC:ERR-50005">No summary for class \WebIt4Me\Reader\AbstractColumn</error>
+      <error line="20" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="32" code="PPC:ERR-50008">No summary for method setName()</error>
+      <error line="44" code="PPC:ERR-50008">No summary for method getName()</error>
+      <error line="52" code="PPC:ERR-50008">No summary for method getValue()</error>
+      <error line="60" code="PPC:ERR-50008">No summary for method makeUpName()</error>
+      <error line="10" code="PPC:ERR-50007">No summary for property $value</error>
+      <error line="13" code="PPC:ERR-50007">No summary for property $name</error>
+    </parse_markers>
+    <source>eJytU0tLAzEQvudXzKHSba0UwZtvPPWgB/FxEUo2nW2D2TTkUQTpfzebTHW7WKtgLguZ+V4z2bNLszCMaV6jM1wgPGM58Se3+HKPfIb2lDGhuHNwXTpvufA3SxVqDbI2CmvU3kG+mWiPtooM7J1BPMEhTPQM33ip8MFy6SNVUxgPh3C14hYin9RzGI7TtbFyxT1Cb8VVwF/2Nra/WtMXIsJwy2uQ2kNPNhY6BSLLSp2aDkplXiqQYiiVFFAFLbxcaphOxVJHniB8kTVGxDfKaDhPVIOEzhNpTs8vpDu6cOjTbAg7oAytjsQVSbbGsc1wF2WKJBbxTWm9axKbwHtjbbN2vMsKCummTSxqGLSqyRslJ481f8VHkwjJYctlK8sGlbe5I4lFH6ymKD+GmFOIrn9iaIn+j9hTs6E9arTFv8vRS//Ua8/0e0UXMdpXRZ/+1APXH21spNcGh3D8+WLW7APIGBrB</source>
+  </file>
+  <file path="AbstractFileReader.php" generated-path="AbstractFileReader.html" hash="074f4105475220ad0b8d43e3cabb7c28" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="true" namespace="WebIt4Me\Reader" line="5" package="Default">
+      <extends/>
+      <implements>\WebIt4Me\Reader\FileReaderInterface</implements>
+      <name>AbstractFileReader</name>
+      <full_name>\WebIt4Me\Reader\AbstractFileReader</full_name>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="5" description="Default"/>
+      </docblock>
+      <constant namespace="WebIt4Me\Reader" line="7" package="Default">
+        <name>LINE_LENGTH</name>
+        <full_name>\WebIt4Me\Reader\AbstractFileReader::LINE_LENGTH</full_name>
+        <value>4096</value>
+        <docblock line="7">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="WebIt4Me\Reader" line="9" package="Default">
+        <name>ERR_MSG_FAILED_TO_OPEN_FILE</name>
+        <full_name>\WebIt4Me\Reader\AbstractFileReader::ERR_MSG_FAILED_TO_OPEN_FILE</full_name>
+        <value>'Failed to open "%s" to read'</value>
+        <docblock line="9">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <property static="false" visibility="protected" namespace="WebIt4Me\Reader" line="11" package="Default">
+        <name>$handler</name>
+        <full_name>\WebIt4Me\Reader\AbstractFileReader::handler</full_name>
+        <default></default>
+        <docblock line="11">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="16" package="Default">
+        <name>__construct</name>
+        <full_name>\WebIt4Me\Reader\AbstractFileReader::__construct()</full_name>
+        <docblock line="16">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="16" description="" type="string" variable="$filePath">
+            <type>string</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\FileReaderInterface::__construct()" refers="\WebIt4Me\Reader\FileReaderInterface::__construct()" link="/classes/WebIt4Me.Reader.FileReaderInterface.html#method___construct"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$filePath</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="WebIt4Me\Reader" line="26" package="Default">
+        <name>openFile</name>
+        <full_name>\WebIt4Me\Reader\AbstractFileReader::openFile()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="26" description="" type="string" variable="$filePath">
+            <type>string</type>
+          </tag>
+          <tag name="throws" line="26" description="" type="\Exception">
+            <type>\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$filePath</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="39" package="Default">
+        <name>readLine</name>
+        <full_name>\WebIt4Me\Reader\AbstractFileReader::readLine()</full_name>
+        <docblock line="39">
+          <description></description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\FileReaderInterface::readLine()" refers="\WebIt4Me\Reader\FileReaderInterface::readLine()" link="/classes/WebIt4Me.Reader.FileReaderInterface.html#method_readLine"/>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="5" code="PPC:ERR-50005">No summary for class \WebIt4Me\Reader\AbstractFileReader</error>
+      <error line="16" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="26" code="PPC:ERR-50008">No summary for method openFile()</error>
+      <error line="39" code="PPC:ERR-50008">No summary for method readLine()</error>
+      <error line="11" code="PPC:ERR-50007">No summary for property $handler</error>
+    </parse_markers>
+    <source>eJyVU11r2zAUffevuISU2CGjeyiDNfOWQp0ukKYlLfSlIBT5qhYospGu6WDkv1f+qO2ZUahejKRzzz3nXPnHryIrgsDwI7qCC4QnPGzo4haf98hTtMsg4AdHlgsCoblzcNVu10pjgwF1LDQe0ZCD/nRjCK30lMHfAPwSuXEE280uYdtkd/P4G+KLr9+/+Qb9bbLfs9uHG7a+2myTa/Z4x+7ukx1b+x3EMFtzz54C5ZAXaGBy5ibVxvp+s5ansDmhII+aZtykunZQXZzP5/UX5rAquOVH8DaUeYGp9KT3nLL2+rzhKQ9aCZClEaRyA4zVCm0pKOwqohra2KuWMoo5pHDGS8pZipUSppVBhib1vdxsAZ4Co2VXMqVMuS8/Kz9VdAPuBnP6pHpYUWbzVwfPyR+BRaX9X19dPp21//Qe+5IQKsdMqXXYCm7DjSIP63Dv2LDN3s9sJSv6nnoBEzvxVXEcg+TaYTTo875qC2DwdeAidIU3TDJ0qOXl5QcvZdGHEg2SHqQ5Cr/14tW2upc97DScwvhRVA9v68cbjgOzSKU1IF+Q3CixBTQGBj9CN+rTG/4nCEE=</source>
+  </file>
+  <file path="ColumnInterface.php" generated-path="ColumnInterface.html" hash="e9b0afedda1e058f8facfb83738e4d79" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <interface namespace="WebIt4Me\Reader" line="5" package="Default">
+      <name>ColumnInterface</name>
+      <full_name>\WebIt4Me\Reader\ColumnInterface</full_name>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="5" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="10" package="Default">
+        <name>getIndex</name>
+        <full_name>\WebIt4Me\Reader\ColumnInterface::getIndex()</full_name>
+        <docblock line="10">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="10" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="15" package="Default">
+        <name>getName</name>
+        <full_name>\WebIt4Me\Reader\ColumnInterface::getName()</full_name>
+        <docblock line="15">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="15" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="20" package="Default">
+        <name>getValue</name>
+        <full_name>\WebIt4Me\Reader\ColumnInterface::getValue()</full_name>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="20" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+    </interface>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="5" code="PPC:ERR-50009">No summary for interface ""</error>
+      <error line="10" code="PPC:ERR-50008">No summary for method getIndex()</error>
+      <error line="15" code="PPC:ERR-50008">No summary for method getName()</error>
+      <error line="20" code="PPC:ERR-50008">No summary for method getValue()</error>
+    </parse_markers>
+    <source>eJyzsS/IKODiykvMTS0uSExOVQhPTfIsMfFNjQlKTUxJLbLm4srMK0ktSgPJOefnlObmecL4XNVcCkCgr6UFphW0FByKUktKi/IUgFqgQvpguqA0KSczWSGtNC+5JDM/TyE9tcQzLyW1QkMTaD4OM4pLijLz0gkZ4wd0OOWmhCXmlIKNqeUCAKnzTco=</source>
+  </file>
+  <file path="Csv/Column.php" generated-path="Csv.Column.html" hash="bb42265515ed4d192a82c2eef02b429e" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="AbstractColumn">\WebIt4Me\Reader\AbstractColumn</namespace-alias>
+    <class final="false" abstract="false" namespace="WebIt4Me\Reader\Csv" line="11" package="WebIt4Me\Reader\Csv">
+      <extends>\WebIt4Me\Reader\AbstractColumn</extends>
+      <name>Column</name>
+      <full_name>\WebIt4Me\Reader\Csv\Column</full_name>
+      <docblock line="11">
+        <description>Class Column</description>
+        <long-description></long-description>
+        <tag name="package" line="11" description="WebIt4Me\Reader\Csv"/>
+        <tag name="inherited_from" description="\WebIt4Me\Reader\AbstractColumn" refers="\WebIt4Me\Reader\AbstractColumn" link="/classes/WebIt4Me.Reader.AbstractColumn.html"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="10" package="Default">
+        <name>$value</name>
+        <full_name>\WebIt4Me\Reader\AbstractColumn::value</full_name>
+        <default></default>
+        <docblock line="10">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="10" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="13" package="Default">
+        <name>$name</name>
+        <full_name>\WebIt4Me\Reader\AbstractColumn::name</full_name>
+        <default></default>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="13" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="8" package="Default">
+        <name>$index</name>
+        <full_name>\WebIt4Me\Reader\IndexableTrait::index</full_name>
+        <default></default>
+        <docblock line="8">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="8" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="20" package="Default">
+        <name>__construct</name>
+        <full_name>\WebIt4Me\Reader\AbstractColumn::__construct()</full_name>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="20" description="" type="integer" variable="$index">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="20" description="" type="string" variable="$value">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="20" description="" type="null" variable="$name">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$index</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default>null</default>
+          <type>null</type>
+        </argument>
+        <inherited_from>\WebIt4Me\Reader\AbstractColumn</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="32" package="Default">
+        <name>setName</name>
+        <full_name>\WebIt4Me\Reader\AbstractColumn::setName()</full_name>
+        <docblock line="32">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="32" description="" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\WebIt4Me\Reader\AbstractColumn</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="44" package="Default">
+        <name>getName</name>
+        <full_name>\WebIt4Me\Reader\AbstractColumn::getName()</full_name>
+        <docblock line="44">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="44" description="" type="string">
+            <type>string</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\ColumnInterface::getName()" refers="\WebIt4Me\Reader\ColumnInterface::getName()" link="/classes/WebIt4Me.Reader.ColumnInterface.html#method_getName"/>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\AbstractColumn</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="52" package="Default">
+        <name>getValue</name>
+        <full_name>\WebIt4Me\Reader\AbstractColumn::getValue()</full_name>
+        <docblock line="52">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="52" description="" type="string">
+            <type>string</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\ColumnInterface::getValue()" refers="\WebIt4Me\Reader\ColumnInterface::getValue()" link="/classes/WebIt4Me.Reader.ColumnInterface.html#method_getValue"/>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\AbstractColumn</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="60" package="Default">
+        <name>makeUpName</name>
+        <full_name>\WebIt4Me\Reader\AbstractColumn::makeUpName()</full_name>
+        <docblock line="60">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="60" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\AbstractColumn</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="15" package="Default">
+        <name>setIndex</name>
+        <full_name>\WebIt4Me\Reader\IndexableTrait::setIndex()</full_name>
+        <docblock line="15">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="15" description="" type="" variable="$index"/>
+          <tag name="return" line="15" description="" type="\WebIt4Me\Reader\Csv\Column">
+            <type>\WebIt4Me\Reader\Csv\Column</type>
+          </tag>
+          <tag name="throw" line="15" description="" type="\InvalidArgumentException">
+            <type>\InvalidArgumentException</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$index</name>
+          <default></default>
+          <type/>
+        </argument>
+        <inherited_from>\WebIt4Me\Reader\IndexableTrait</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="29" package="Default">
+        <name>getIndex</name>
+        <full_name>\WebIt4Me\Reader\IndexableTrait::getIndex()</full_name>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="29" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\IndexableTrait</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyzsS/IKODiykvMTS0uSExOVQhPTfIsMfFNjQlKTUxJLYpxLi6z5uIqLcaUcUwqLilKTC5xzs8pzc0DKtLX0uJS0FJwzkksLlaAiIL4DkBzsxPTsRoNlNfnSkbSoJBaUZKal1KsgGo6VzUXVy0XAIFNOVc=</source>
+  </file>
+  <file path="Csv/Loader.php" generated-path="Csv.Loader.html" hash="489a69e33b03e66b9222bac7d66ef58a" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="AbstractFileReader">\WebIt4Me\Reader\AbstractFileReader</namespace-alias>
+    <namespace-alias name="IterableTrait">\WebIt4Me\Reader\IterableTrait</namespace-alias>
+    <namespace-alias name="LoaderInterface">\WebIt4Me\Reader\LoaderInterface</namespace-alias>
+    <namespace-alias name="RowInterface">\WebIt4Me\Reader\RowInterface</namespace-alias>
+    <class final="false" abstract="false" namespace="WebIt4Me\Reader\Csv" line="17" package="WebIt4Me\Reader\Csv">
+      <extends/>
+      <implements>\WebIt4Me\Reader\LoaderInterface</implements>
+      <name>Loader</name>
+      <full_name>\WebIt4Me\Reader\Csv\Loader</full_name>
+      <docblock line="17">
+        <description>Class Loader</description>
+        <long-description></long-description>
+        <tag name="package" line="17" description="WebIt4Me\Reader\Csv"/>
+        <tag name="see" line="17" description="" link="\WebIt4Me\Reader\Csv\IterableTrait"/>
+      </docblock>
+      <constant namespace="WebIt4Me\Reader\Csv" line="21" package="WebIt4Me\Reader\Csv">
+        <name>ERR_MSG_ROW_BAD_OFFSET</name>
+        <full_name>\WebIt4Me\Reader\Csv\Loader::ERR_MSG_ROW_BAD_OFFSET</full_name>
+        <value>'There is no index %d since the are only %d rows in the CSV file'</value>
+        <docblock line="21">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="24" package="WebIt4Me\Reader\Csv">
+        <name>$filePath</name>
+        <full_name>\WebIt4Me\Reader\Csv\Loader::filePath</full_name>
+        <default></default>
+        <docblock line="24">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="24" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="27" package="WebIt4Me\Reader\Csv">
+        <name>$fileReader</name>
+        <full_name>\WebIt4Me\Reader\Csv\Loader::fileReader</full_name>
+        <default></default>
+        <docblock line="27">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="27" description="" type="\WebIt4Me\Reader\Csv\Reader" variable="">
+            <type>\WebIt4Me\Reader\Csv\Reader</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="30" package="WebIt4Me\Reader\Csv">
+        <name>$columnNames</name>
+        <full_name>\WebIt4Me\Reader\Csv\Loader::columnNames</full_name>
+        <default></default>
+        <docblock line="30">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="30" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="33" package="WebIt4Me\Reader\Csv">
+        <name>$reachedToLastLine</name>
+        <full_name>\WebIt4Me\Reader\Csv\Loader::reachedToLastLine</full_name>
+        <default>false</default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="33" description="" type="boolean" variable="">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="7" package="Default">
+        <name>$iterable</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::iterable</full_name>
+        <default></default>
+        <docblock line="7">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="9" package="Default">
+        <name>$pointer</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::pointer</full_name>
+        <default>0</default>
+        <docblock line="9">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="38" package="WebIt4Me\Reader\Csv">
+        <name>__construct</name>
+        <full_name>\WebIt4Me\Reader\Csv\Loader::__construct()</full_name>
+        <docblock line="38">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="38" description="" type="string" variable="$filePath">
+            <type>string</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\LoaderInterface::__construct()" refers="\WebIt4Me\Reader\LoaderInterface::__construct()" link="/classes/WebIt4Me.Reader.LoaderInterface.html#method___construct"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$filePath</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="47" package="WebIt4Me\Reader\Csv">
+        <name>getColumnNames</name>
+        <full_name>\WebIt4Me\Reader\Csv\Loader::getColumnNames()</full_name>
+        <docblock line="47">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="47" description="" type="array&lt;mixed,string&gt;|null">
+            <type>array&lt;mixed,string&gt;</type>
+            <type>null</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\LoaderInterface::getColumnNames()" refers="\WebIt4Me\Reader\LoaderInterface::getColumnNames()" link="/classes/WebIt4Me.Reader.LoaderInterface.html#method_getColumnNames"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="55" package="WebIt4Me\Reader\Csv">
+        <name>readRow</name>
+        <full_name>\WebIt4Me\Reader\Csv\Loader::readRow()</full_name>
+        <docblock line="55">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="55" description="" type="\WebIt4Me\Reader\RowInterface">
+            <type>\WebIt4Me\Reader\RowInterface</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\LoaderInterface::readRow()" refers="\WebIt4Me\Reader\LoaderInterface::readRow()" link="/classes/WebIt4Me.Reader.LoaderInterface.html#method_readRow"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="79" package="WebIt4Me\Reader\Csv">
+        <name>readRowAt</name>
+        <full_name>\WebIt4Me\Reader\Csv\Loader::readRowAt()</full_name>
+        <docblock line="79">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="79" description="" type="integer" variable="$rowIndex">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="79" description="" type="\WebIt4Me\Reader\RowInterface">
+            <type>\WebIt4Me\Reader\RowInterface</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\LoaderInterface::readRowAt()" refers="\WebIt4Me\Reader\LoaderInterface::readRowAt()" link="/classes/WebIt4Me.Reader.LoaderInterface.html#method_readRowAt"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$rowIndex</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="100" package="WebIt4Me\Reader\Csv">
+        <name>search</name>
+        <full_name>\WebIt4Me\Reader\Csv\Loader::search()</full_name>
+        <docblock line="100">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="100" description="" type="string" variable="$keyword">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="100" description="" type="array&lt;mixed,\WebIt4Me\Reader\RowInterface&gt;">
+            <type>array&lt;mixed,\WebIt4Me\Reader\RowInterface&gt;</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\LoaderInterface::search()" refers="\WebIt4Me\Reader\LoaderInterface::search()" link="/classes/WebIt4Me.Reader.LoaderInterface.html#method_search"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$keyword</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="119" package="WebIt4Me\Reader\Csv">
+        <name>readAll</name>
+        <full_name>\WebIt4Me\Reader\Csv\Loader::readAll()</full_name>
+        <docblock line="119">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="119" description="" type="array&lt;mixed,\WebIt4Me\Reader\RowInterface&gt;">
+            <type>array&lt;mixed,\WebIt4Me\Reader\RowInterface&gt;</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\LoaderInterface::readAll()" refers="\WebIt4Me\Reader\LoaderInterface::readAll()" link="/classes/WebIt4Me.Reader.LoaderInterface.html#method_readAll"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="126" package="WebIt4Me\Reader\Csv">
+        <name>loadAllIfNotYet</name>
+        <full_name>\WebIt4Me\Reader\Csv\Loader::loadAllIfNotYet()</full_name>
+        <docblock line="126">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="136" package="WebIt4Me\Reader\Csv">
+        <name>setColumnNames</name>
+        <full_name>\WebIt4Me\Reader\Csv\Loader::setColumnNames()</full_name>
+        <docblock line="136">
+          <description>This method has to be run first think before reading/storing any other line</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="141" package="WebIt4Me\Reader\Csv">
+        <name>getFileReader</name>
+        <full_name>\WebIt4Me\Reader\Csv\Loader::getFileReader()</full_name>
+        <docblock line="141">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="17" package="Default">
+        <name>current</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::current()</full_name>
+        <docblock line="17">
+          <description>(PHP 5 &amp;gt;= 5.0.0)&lt;br/&gt;
+Return the current element</description>
+          <long-description></long-description>
+          <tag name="link" line="17" description="http://php.net/manual/en/iterator.current.php" link="http://php.net/manual/en/iterator.current.php"/>
+          <tag name="return" line="17" description="Can return any type." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\IterableTrait</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="28" package="Default">
+        <name>next</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::next()</full_name>
+        <docblock line="28">
+          <description>(PHP 5 &amp;gt;= 5.0.0)&lt;br/&gt;
+Move forward to next element</description>
+          <long-description></long-description>
+          <tag name="link" line="28" description="http://php.net/manual/en/iterator.next.php" link="http://php.net/manual/en/iterator.next.php"/>
+          <tag name="return" line="28" description="Any returned value is ignored." type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\IterableTrait</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="39" package="Default">
+        <name>key</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::key()</full_name>
+        <docblock line="39">
+          <description>(PHP 5 &amp;gt;= 5.0.0)&lt;br/&gt;
+Return the key of the current element</description>
+          <long-description></long-description>
+          <tag name="link" line="39" description="http://php.net/manual/en/iterator.key.php" link="http://php.net/manual/en/iterator.key.php"/>
+          <tag name="return" line="39" description="scalar on success, or null on failure." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\IterableTrait</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="51" package="Default">
+        <name>valid</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::valid()</full_name>
+        <docblock line="51">
+          <description>(PHP 5 &amp;gt;= 5.0.0)&lt;br/&gt;
+Checks if current position is valid</description>
+          <long-description></long-description>
+          <tag name="link" line="51" description="http://php.net/manual/en/iterator.valid.php" link="http://php.net/manual/en/iterator.valid.php"/>
+          <tag name="return" line="51" description="The return value will be casted to boolean and then evaluated.&#10;Returns true on success or false on failure." type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\IterableTrait</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="62" package="Default">
+        <name>rewind</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::rewind()</full_name>
+        <docblock line="62">
+          <description>(PHP 5 &amp;gt;= 5.0.0)&lt;br/&gt;
+Rewind the Iterator to the first element</description>
+          <long-description></long-description>
+          <tag name="link" line="62" description="http://php.net/manual/en/iterator.rewind.php" link="http://php.net/manual/en/iterator.rewind.php"/>
+          <tag name="return" line="62" description="Any returned value is ignored." type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\IterableTrait</inherited_from>
+      </method>
+      <property final="false" static="false" visibility="public" line="17">
+        <name>$iterable</name>
+        <default/>
+        <docblock>
+          <description>handles in IterableTrait</description>
+          <long-description/>
+          <tag name="var" description="&lt;p&gt;handles in IterableTrait&lt;/p&gt;" type="array&lt;mixed,\WebIt4Me\Reader\Csv\Row&gt;" line="17">
+            <type by_reference="false">array&lt;mixed,\WebIt4Me\Reader\Csv\Row&gt;</type>
+          </tag>
+          <tag name="magic" line="17"/>
+          <tag name="property-read" line="17" description="handles in IterableTrait" type="array&lt;mixed,\WebIt4Me\Reader\Csv\Row&gt;" variable="$iterable">
+            <type>array&lt;mixed,\WebIt4Me\Reader\Csv\Row&gt;</type>
+          </tag>
+        </docblock>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="38" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="47" code="PPC:ERR-50008">No summary for method getColumnNames()</error>
+      <error line="55" code="PPC:ERR-50008">No summary for method readRow()</error>
+      <error line="79" code="PPC:ERR-50008">No summary for method readRowAt()</error>
+      <error line="100" code="PPC:ERR-50008">No summary for method search()</error>
+      <error line="119" code="PPC:ERR-50008">No summary for method readAll()</error>
+      <error line="126" code="PPC:ERR-50008">No summary for method loadAllIfNotYet()</error>
+      <error line="141" code="PPC:ERR-50008">No summary for method getFileReader()</error>
+      <error line="24" code="PPC:ERR-50007">No summary for property $filePath</error>
+      <error line="27" code="PPC:ERR-50007">No summary for property $fileReader</error>
+      <error line="30" code="PPC:ERR-50007">No summary for property $columnNames</error>
+      <error line="33" code="PPC:ERR-50007">No summary for property $reachedToLastLine</error>
+    </parse_markers>
+    <source>eJylVk1v4zYQvetXzAIuVs46yKWnTb3dNE0KA9lN4Ri7KJzAoOVRRIQmDZKKY7T+7x3qw5Io2m1RXQyTb4Zv5s0M+dPPm2wTRZKt0WxYgvAdlxP74xd8nCJboX68Nq+XUZSb/s7V0ljNEnvLBZZLl0HcxKJmS4EzzbgNQ+6U+5lIQqZEIgyaqm0LEV2cnUVwBteCGQOlA/f/M0Xxwp6DgdB+CdFqg9ruzjVtAfmdP8GAVzQhY3Il0ACX0KFemBrE3upFlLRIAF9vBK5R2nrlwDr6MwL6XHBeUor1RElj4WY6XXx5+G0xvf+++OXq18X97e3DzQzG8H6WoUbgBqQicit8gx9WYLgk1WyGwGhTSbFzq1ptiwDc+vXDN0hJo/fVMZQ4+PzKNJB8XD47/m55o/krswgDh/2d2cyHl3kMwmv5uwbESLNdzyBRIl/Lr67ifIulUqKHJ5GSDFczdceMveMSKRcpEwYb6+K3FF+zdR3YIZJqu/KbLwVPIM1lYrmSsFgUedd5YuODxbCAlnK5b2Azbs4/1dvEoJUmD2TQXjchxsMSsO+T1WhzLSu286e/ZC7ESarPnmePZOWvotFJ82kG7c46ScD1C4F7Jw8kvtXSVMcT12YwxMPzT87WQVxCDoY8hbjQEsbjceNm2PLdymyoEkg4vOyAq6CqEqlX982hA+oOspS4dZHHHeNE5ZLqoDyvHgnDUZdNTXMUIhkUyX3tuL0DaP6MC1otSK1msXpEv7LcubQFbOJmwv/V9oqir335Mju1uKH69hM0P5g8DX3tulUZsAhrVAhB42Z8RJLGaptRnUEcV7I2tVKW6hDejauB4VNz8Rx4lBVYHesjg4I0tDtlULn48CEYmM0cTVd7j/e5vU+nTD7jzVuCG6dCbGjsSZvGBkX68WP4Lhg1ao+OZGd4fOp0R+QL7rZKr05VzfzpZN0YZDrJ4trTkckp6Ca8EmKSflX2DyqgTjOsmU0yojN1t9YY5q2SSFXR9OBHCMwUWfCFavAuzQ5UzsGQoE5+ysNGmbhCFd37jYmcptTokJwTFRQModXNPm5/pHD2/b5ve/wvA/wf5HJ9QUL0RnjVRX73tEMPDKeuKB2a9f19OLlXAoHp8u7YpD9+I5TRtHstnKsZGcAabaZW9MQzYBUsEXRONwXX9O4ih/KFllwFFVmi3F8Yq4o+YXIHih5TGgSR6SbYj9O//8MN0bqe/+WleSq3nmFwbi/c+yJuvWRKdG9g9xD1XVk6955Cvcz3y6P9Qixx++hv0Q+P3g==</source>
+  </file>
+  <file path="Csv/Reader.php" generated-path="Csv.Reader.html" hash="9715b7af8a0c194d939027f7b425a1c6" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="AbstractFileReader">\WebIt4Me\Reader\AbstractFileReader</namespace-alias>
+    <class final="false" abstract="false" namespace="WebIt4Me\Reader\Csv" line="8" package="Default">
+      <extends>\WebIt4Me\Reader\AbstractFileReader</extends>
+      <name>Reader</name>
+      <full_name>\WebIt4Me\Reader\Csv\Reader</full_name>
+      <docblock line="8">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="8" description="Default"/>
+        <tag name="inherited_from" description="\WebIt4Me\Reader\AbstractFileReader" refers="\WebIt4Me\Reader\AbstractFileReader" link="/classes/WebIt4Me.Reader.AbstractFileReader.html"/>
+      </docblock>
+      <constant namespace="WebIt4Me\Reader\Csv" line="10" package="Default">
+        <name>DELIMITER</name>
+        <full_name>\WebIt4Me\Reader\Csv\Reader::DELIMITER</full_name>
+        <value>','</value>
+        <docblock line="10">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="WebIt4Me\Reader\Csv" line="7" package="Default">
+        <name>LINE_LENGTH</name>
+        <full_name>\WebIt4Me\Reader\AbstractFileReader::LINE_LENGTH</full_name>
+        <value>4096</value>
+        <docblock line="7">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="WebIt4Me\Reader\Csv" line="9" package="Default">
+        <name>ERR_MSG_FAILED_TO_OPEN_FILE</name>
+        <full_name>\WebIt4Me\Reader\AbstractFileReader::ERR_MSG_FAILED_TO_OPEN_FILE</full_name>
+        <value>'Failed to open "%s" to read'</value>
+        <docblock line="9">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <property static="false" visibility="protected" namespace="WebIt4Me\Reader\Csv" line="11" package="Default">
+        <name>$handler</name>
+        <full_name>\WebIt4Me\Reader\AbstractFileReader::handler</full_name>
+        <default></default>
+        <docblock line="11">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="16" package="Default">
+        <name>readLine</name>
+        <full_name>\WebIt4Me\Reader\Csv\Reader::readLine()</full_name>
+        <docblock line="16">
+          <description>Returns an array of all values in the next line or false if its end of the file</description>
+          <long-description></long-description>
+          <tag name="return" line="16" description="" type="array|false">
+            <type>array</type>
+            <type>false</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\AbstractFileReader::readLine()" refers="\WebIt4Me\Reader\AbstractFileReader::readLine()" link="/classes/WebIt4Me.Reader.AbstractFileReader.html#method_readLine"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="16" package="Default">
+        <name>__construct</name>
+        <full_name>\WebIt4Me\Reader\AbstractFileReader::__construct()</full_name>
+        <docblock line="16">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="16" description="" type="string" variable="$filePath">
+            <type>string</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\FileReaderInterface::__construct()" refers="\WebIt4Me\Reader\FileReaderInterface::__construct()" link="/classes/WebIt4Me.Reader.FileReaderInterface.html#method___construct"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$filePath</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\WebIt4Me\Reader\AbstractFileReader</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="WebIt4Me\Reader\Csv" line="26" package="Default">
+        <name>openFile</name>
+        <full_name>\WebIt4Me\Reader\AbstractFileReader::openFile()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="26" description="" type="string" variable="$filePath">
+            <type>string</type>
+          </tag>
+          <tag name="throws" line="26" description="" type="\Exception">
+            <type>\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$filePath</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\WebIt4Me\Reader\AbstractFileReader</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="39" package="Default">
+        <name>readLine</name>
+        <full_name>\WebIt4Me\Reader\AbstractFileReader::readLine()</full_name>
+        <docblock line="39">
+          <description></description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\FileReaderInterface::readLine()" refers="\WebIt4Me\Reader\FileReaderInterface::readLine()" link="/classes/WebIt4Me.Reader.FileReaderInterface.html#method_readLine"/>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\AbstractFileReader</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="8" code="PPC:ERR-50005">No summary for class \WebIt4Me\Reader\Csv\Reader</error>
+    </parse_markers>
+    <source>eJxlj0FrAjEQhe/5Fa8guIpFCz1pt7a0FgS9SKEXLzE76QbS7JLJ2hbrf282a4XiXIbMe/Plzd28LmshnPwgrqUivNFuGW7XtN2QLMhvn3g/E0I0fCk97jh4qcKLsdSNolNZyYzuCfoK5ArGpfMgBGKpynHA82K1XC9fFxvk6I/6s04bD4epYxhxofGOIR2k9/IblYa0FntpG2IYh1ASXPwO1jhC5aGljZGNhgmMGKJdaU06RvjDPvjE7Zg/aeMkjVOvm501CrpxKpjKwcfoq8jPBkk+dOZYJ07W89VnvEG/U1C8z3qhNHx9X0pXWPIj3EwmkxGYrJ5OzzcPBrjK81Pe+RnZVsJN/42SbZZGR3H8BVurhPM=</source>
+  </file>
+  <file path="Csv/Row.php" generated-path="Csv.Row.html" hash="97dcfe5675095657ee545ccb33a533c3" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="ColumnInterface">\WebIt4Me\Reader\ColumnInterface</namespace-alias>
+    <namespace-alias name="ColumnsInterface">\WebIt4Me\Reader\ColumnsInterface</namespace-alias>
+    <namespace-alias name="IndexableTrait">\WebIt4Me\Reader\IndexableTrait</namespace-alias>
+    <namespace-alias name="IterableTrait">\WebIt4Me\Reader\IterableTrait</namespace-alias>
+    <namespace-alias name="RowInterface">\WebIt4Me\Reader\RowInterface</namespace-alias>
+    <class final="false" abstract="false" namespace="WebIt4Me\Reader\Csv" line="17" package="WebIt4Me\Reader\Csv">
+      <extends/>
+      <implements>\WebIt4Me\Reader\RowInterface</implements>
+      <name>Row</name>
+      <full_name>\WebIt4Me\Reader\Csv\Row</full_name>
+      <docblock line="17">
+        <description>Class Row</description>
+        <long-description></long-description>
+        <tag name="package" line="17" description="WebIt4Me\Reader\Csv"/>
+        <tag name="see" line="17" description="" link="\WebIt4Me\Reader\Csv\IterableTrait"/>
+      </docblock>
+      <constant namespace="WebIt4Me\Reader\Csv" line="22" package="WebIt4Me\Reader\Csv">
+        <name>ERR_MSG_BAD_NAME</name>
+        <full_name>\WebIt4Me\Reader\Csv\Row::ERR_MSG_BAD_NAME</full_name>
+        <value>'There is no column named %s in the row.'</value>
+        <docblock line="22">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="WebIt4Me\Reader\Csv" line="23" package="WebIt4Me\Reader\Csv">
+        <name>ERR_MSG_BAD_INDEX</name>
+        <full_name>\WebIt4Me\Reader\Csv\Row::ERR_MSG_BAD_INDEX</full_name>
+        <value>'%s is an invalid index, since this row only hold % columns'</value>
+        <docblock line="23">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="26" package="WebIt4Me\Reader\Csv">
+        <name>$columnNames</name>
+        <full_name>\WebIt4Me\Reader\Csv\Row::columnNames</full_name>
+        <default></default>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="26" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="7" package="Default">
+        <name>$iterable</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::iterable</full_name>
+        <default></default>
+        <docblock line="7">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="9" package="Default">
+        <name>$pointer</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::pointer</full_name>
+        <default>0</default>
+        <docblock line="9">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="8" package="Default">
+        <name>$index</name>
+        <full_name>\WebIt4Me\Reader\IndexableTrait::index</full_name>
+        <default></default>
+        <docblock line="8">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="8" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="33" package="WebIt4Me\Reader\Csv">
+        <name>__construct</name>
+        <full_name>\WebIt4Me\Reader\Csv\Row::__construct()</full_name>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="33" description="" type="integer" variable="$index">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="33" description="" type="" variable="$columnValues"/>
+          <tag name="param" line="33" description="" type="array|null" variable="$columnNames">
+            <type>array</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$index</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$columnValues</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$columnNames</name>
+          <default>null</default>
+          <type>array|null</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="47" package="WebIt4Me\Reader\Csv">
+        <name>getColumnNames</name>
+        <full_name>\WebIt4Me\Reader\Csv\Row::getColumnNames()</full_name>
+        <docblock line="47">
+          <description>To return an zero based array to map column index with their name (title).</description>
+          <long-description>i.e. [0 =&gt; 'First Column', 1 =&gt; 'And the second']</long-description>
+          <tag name="return" line="47" description="" type="null|array">
+            <type>null</type>
+            <type>array</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\RowInterface::getColumnNames()" refers="\WebIt4Me\Reader\RowInterface::getColumnNames()" link="/classes/WebIt4Me.Reader.RowInterface.html#method_getColumnNames"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="57" package="WebIt4Me\Reader\Csv">
+        <name>getColumns</name>
+        <full_name>\WebIt4Me\Reader\Csv\Row::getColumns()</full_name>
+        <docblock line="57">
+          <description>Return row's all columns</description>
+          <long-description></long-description>
+          <tag name="return" line="57" description="" type="array&lt;mixed,\WebIt4Me\Reader\ColumnInterface&gt;">
+            <type>array&lt;mixed,\WebIt4Me\Reader\ColumnInterface&gt;</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\RowInterface::getColumns()" refers="\WebIt4Me\Reader\RowInterface::getColumns()" link="/classes/WebIt4Me.Reader.RowInterface.html#method_getColumns"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="69" package="WebIt4Me\Reader\Csv">
+        <name>getColumn</name>
+        <full_name>\WebIt4Me\Reader\Csv\Row::getColumn()</full_name>
+        <docblock line="69">
+          <description>Return the column with the matching name</description>
+          <long-description></long-description>
+          <tag name="param" line="69" description="" type="string" variable="$columnName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="69" description="" type="\WebIt4Me\Reader\ColumnInterface">
+            <type>\WebIt4Me\Reader\ColumnInterface</type>
+          </tag>
+          <tag name="throw" line="69" description="" type="\OutOfRangeException">
+            <type>\OutOfRangeException</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\RowInterface::getColumn()" refers="\WebIt4Me\Reader\RowInterface::getColumn()" link="/classes/WebIt4Me.Reader.RowInterface.html#method_getColumn"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$columnName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="85" package="WebIt4Me\Reader\Csv">
+        <name>getColumnAt</name>
+        <full_name>\WebIt4Me\Reader\Csv\Row::getColumnAt()</full_name>
+        <docblock line="85">
+          <description>Return a column based on its name or null if column with the given name is not exist</description>
+          <long-description></long-description>
+          <tag name="param" line="85" description="" type="integer" variable="$columnIndex">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="85" description="" type="\WebIt4Me\Reader\ColumnInterface">
+            <type>\WebIt4Me\Reader\ColumnInterface</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\RowInterface::getColumnAt()" refers="\WebIt4Me\Reader\RowInterface::getColumnAt()" link="/classes/WebIt4Me.Reader.RowInterface.html#method_getColumnAt"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$columnIndex</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="99" package="WebIt4Me\Reader\Csv">
+        <name>count</name>
+        <full_name>\WebIt4Me\Reader\Csv\Row::count()</full_name>
+        <docblock line="99">
+          <description>Count row's columns</description>
+          <long-description></long-description>
+          <tag name="link" line="99" description="http://php.net/manual/en/countable.count.php" link="http://php.net/manual/en/countable.count.php"/>
+          <tag name="return" line="99" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="108" package="WebIt4Me\Reader\Csv">
+        <name>setColumns</name>
+        <full_name>\WebIt4Me\Reader\Csv\Row::setColumns()</full_name>
+        <docblock line="108">
+          <description>Receives a list of values for all columns and create Column object for each and store it</description>
+          <long-description></long-description>
+          <tag name="param" line="108" description="" type="array" variable="$columnValues">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$columnValues</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="WebIt4Me\Reader\Csv" line="128" package="WebIt4Me\Reader\Csv">
+        <name>getColumnNameForIndex</name>
+        <full_name>\WebIt4Me\Reader\Csv\Row::getColumnNameForIndex()</full_name>
+        <docblock line="128">
+          <description>Return name only if one been provided</description>
+          <long-description></long-description>
+          <tag name="param" line="128" description="" type="integer" variable="$index">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="128" description="" type="string|null">
+            <type>string</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$index</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="139" package="WebIt4Me\Reader\Csv">
+        <name>toArray</name>
+        <full_name>\WebIt4Me\Reader\Csv\Row::toArray()</full_name>
+        <docblock line="139">
+          <description>Returns a key/value set of all existing columns in the row</description>
+          <long-description></long-description>
+          <tag name="return" line="139" description="" type="array">
+            <type>array</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\RowInterface::toArray()" refers="\WebIt4Me\Reader\RowInterface::toArray()" link="/classes/WebIt4Me.Reader.RowInterface.html#method_toArray"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="155" package="WebIt4Me\Reader\Csv">
+        <name>toString</name>
+        <full_name>\WebIt4Me\Reader\Csv\Row::toString()</full_name>
+        <docblock line="155">
+          <description>Returns a string of all the column values, comma separated</description>
+          <long-description></long-description>
+          <tag name="return" line="155" description="" type="string">
+            <type>string</type>
+          </tag>
+          <tag name="inherited_from" description="\WebIt4Me\Reader\RowInterface::toString()" refers="\WebIt4Me\Reader\RowInterface::toString()" link="/classes/WebIt4Me.Reader.RowInterface.html#method_toString"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="17" package="Default">
+        <name>current</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::current()</full_name>
+        <docblock line="17">
+          <description>(PHP 5 &amp;gt;= 5.0.0)&lt;br/&gt;
+Return the current element</description>
+          <long-description></long-description>
+          <tag name="link" line="17" description="http://php.net/manual/en/iterator.current.php" link="http://php.net/manual/en/iterator.current.php"/>
+          <tag name="return" line="17" description="Can return any type." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\IterableTrait</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="28" package="Default">
+        <name>next</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::next()</full_name>
+        <docblock line="28">
+          <description>(PHP 5 &amp;gt;= 5.0.0)&lt;br/&gt;
+Move forward to next element</description>
+          <long-description></long-description>
+          <tag name="link" line="28" description="http://php.net/manual/en/iterator.next.php" link="http://php.net/manual/en/iterator.next.php"/>
+          <tag name="return" line="28" description="Any returned value is ignored." type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\IterableTrait</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="39" package="Default">
+        <name>key</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::key()</full_name>
+        <docblock line="39">
+          <description>(PHP 5 &amp;gt;= 5.0.0)&lt;br/&gt;
+Return the key of the current element</description>
+          <long-description></long-description>
+          <tag name="link" line="39" description="http://php.net/manual/en/iterator.key.php" link="http://php.net/manual/en/iterator.key.php"/>
+          <tag name="return" line="39" description="scalar on success, or null on failure." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\IterableTrait</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="51" package="Default">
+        <name>valid</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::valid()</full_name>
+        <docblock line="51">
+          <description>(PHP 5 &amp;gt;= 5.0.0)&lt;br/&gt;
+Checks if current position is valid</description>
+          <long-description></long-description>
+          <tag name="link" line="51" description="http://php.net/manual/en/iterator.valid.php" link="http://php.net/manual/en/iterator.valid.php"/>
+          <tag name="return" line="51" description="The return value will be casted to boolean and then evaluated.&#10;Returns true on success or false on failure." type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\IterableTrait</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="62" package="Default">
+        <name>rewind</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::rewind()</full_name>
+        <docblock line="62">
+          <description>(PHP 5 &amp;gt;= 5.0.0)&lt;br/&gt;
+Rewind the Iterator to the first element</description>
+          <long-description></long-description>
+          <tag name="link" line="62" description="http://php.net/manual/en/iterator.rewind.php" link="http://php.net/manual/en/iterator.rewind.php"/>
+          <tag name="return" line="62" description="Any returned value is ignored." type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\IterableTrait</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="15" package="Default">
+        <name>setIndex</name>
+        <full_name>\WebIt4Me\Reader\IndexableTrait::setIndex()</full_name>
+        <docblock line="15">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="15" description="" type="" variable="$index"/>
+          <tag name="return" line="15" description="" type="\WebIt4Me\Reader\Csv\Row">
+            <type>\WebIt4Me\Reader\Csv\Row</type>
+          </tag>
+          <tag name="throw" line="15" description="" type="\InvalidArgumentException">
+            <type>\InvalidArgumentException</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$index</name>
+          <default></default>
+          <type/>
+        </argument>
+        <inherited_from>\WebIt4Me\Reader\IndexableTrait</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader\Csv" line="29" package="Default">
+        <name>getIndex</name>
+        <full_name>\WebIt4Me\Reader\IndexableTrait::getIndex()</full_name>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="29" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <inherited_from>\WebIt4Me\Reader\IndexableTrait</inherited_from>
+      </method>
+      <property final="false" static="false" visibility="public" line="17">
+        <name>$iterable</name>
+        <default/>
+        <docblock>
+          <description>handles in IterableTrait</description>
+          <long-description/>
+          <tag name="var" description="&lt;p&gt;handles in IterableTrait&lt;/p&gt;" type="array&lt;mixed,\WebIt4Me\Reader\Csv\Column&gt;" line="17">
+            <type by_reference="false">array&lt;mixed,\WebIt4Me\Reader\Csv\Column&gt;</type>
+          </tag>
+          <tag name="magic" line="17"/>
+          <tag name="property-read" line="17" description="handles in IterableTrait" type="array&lt;mixed,\WebIt4Me\Reader\Csv\Column&gt;" variable="$iterable">
+            <type>array&lt;mixed,\WebIt4Me\Reader\Csv\Column&gt;</type>
+          </tag>
+        </docblock>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="33" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="26" code="PPC:ERR-50007">No summary for property $columnNames</error>
+    </parse_markers>
+    <source>eJytV99v2zYQftdfcQOyWkoduwP2lMxpszQt8pAUcINtgGMYtERHXGTSICknWZv/vccfkiVatvswvdgWj8e7+777jv7j/SpfRREnS6pWJKXwN51f699v6P2YkozK+0u1PouiUnWsiKJc8muuqVzgzrM9RuqA1TXP6DOZF/ROEqZ32KCHAyZj8dQ4KBoeH0dwDJcFUQpwzfz4gEk+kofOPN26FCsq9cuJxPfgwp9M4Yj54yEnPCuoAsahFZLdrSjdejuM0ioCYMtVQZeUa/uzDjb6FgE+Jqcgzfp1UCG7kAquNFyNx7Obr59nf158nN1e3FzBCHp3OZUUmAIu0MrkAAbiDH61geucghRPg97ZDj/Xtx+v/jGOjL0CwnHXmhQsw08MpA+KcSSLznERHYHgxQvkosAD/Hmq54NEFODDmkggUpIXUw7zdiXZmmgKR8761vBvs8F+OrQkWeKZGgEwBwcLfvdfpCipCtbscd95WRStQ7yVj6KcFyyFRclTzQSH2cyWQpapjo98pq0z+i1fWCDjP7G+HITmOTJlOTlXVFvUvKfEp9ewaLvqKEXbm++luBVR4iB83ardnQBJdSm5Qe8/KgXMiUIGOBi0gCVZVdywAcIT07mhBpOWLBBrpguaDCqPbEAHMHkHo3PofWISKeMi6vXhN/vygmeWWopiGbPetEbEB2KK9d2evxeFhypVW4o4LK93tl3DuhJhKcZuBxK1h1xGQniKhvEFijaZ/lyYh0KspGMXUj48UzmPR4UEYqTTnPEHC4i3D3iOdDUGDfYcSKte1rlp3fsvpf6yGBP+QK+eU7oyuf1c3nHjzLACC4H6meYQ2xoAUVWAScPIPGwBlZ+Tc3RtnMUJjEathgh3NYvsrM5a66/R5lv91eXLaXfOECsUJa4XsaLF4vQ0lNVW6yc7286DSSooXdOhe4aab9tKSNsIJvMQ7ge2pk6pnXZroM9M6S45TD2oTVHci/cBMC903PQZ4mlg+oUpVKE4YPWkuW2ahEj9T0W/9mJcNX3JdZxUKAQ4d3dfO85d8F0az14pQpUoGH+EXOvV6XCIt6YBp3q4JLwkxZDyoY3JHDSw3wbmXhUAg4nuBcOn1S0mbjFIag8NU4pkws6DAhkEYgFrOy9MZzY1EKdDBik2Kw5jxwQQ839pqq2h7WFjobQwF4qQim6YdI3h9pivU9w5xsIZatOlEufiuw3IG1Vp7m2oi30RUtCvmWmNNPTatSUn1Yn9rpXad8eqQ6Q1tD4J6Ue/d5o0p39jV5Oc1nC6uQichUlYg7dvtzi/U4Sc3JirGbav4BTmFOUFb7hrltHs8CXLM89NGHuV2g/ujhqwLkHxvmOmZpZEcVcdcbIm8OYNtIQntJi4A4z0vO+q8S57OG1Zm/T2i7pppkf6MrSNZJhsusq0khVpM4SrntpcscNaHr79aHFh67HVEa7XRjCZNrhU365971Zc987N0x7FG87tGcrurMn2XG7Q0761PRHvl2Hr63Bl/T3Gl7RxGVr7m3cqlks0o4auukHfFksPlParNdolsebfmcho3Ov36lFTw1FL7Wv0A0Y6ipA=</source>
+  </file>
+  <file path="FileReaderInterface.php" generated-path="FileReaderInterface.html" hash="34a927a783834a1f2f5f99a692f7d228" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <interface namespace="WebIt4Me\Reader" line="5" package="Default">
+      <name>FileReaderInterface</name>
+      <full_name>\WebIt4Me\Reader\FileReaderInterface</full_name>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="5" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="10" package="Default">
+        <name>__construct</name>
+        <full_name>\WebIt4Me\Reader\FileReaderInterface::__construct()</full_name>
+        <docblock line="10">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="10" description="" type="" variable="$filePath"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$filePath</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="15" package="Default">
+        <name>readLine</name>
+        <full_name>\WebIt4Me\Reader\FileReaderInterface::readLine()</full_name>
+        <docblock line="15">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="15" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+    </interface>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="5" code="PPC:ERR-50009">No summary for interface ""</error>
+      <error line="10" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="15" code="PPC:ERR-50008">No summary for method readLine()</error>
+    </parse_markers>
+    <source>eJx9jj8LwkAMxfd8igwO9ZYubgo6CQUFcXERyvXM2YM2PdLcJH53z/pncDDLg19e3stqHdsIwLanMVpHeKKm0sWezkeyF5IlQGAl8c/dNnT0wtWHwQ0wT2nMpGhwE63YHmc+mw9W2zcvJ42p6YJDn9hpGBjr2g08qiSnxfdinkt/Q4U0CWO2Br7+jZT84C4wFTnmDg8W2EKo</source>
+  </file>
+  <file path="IndexableTrait.php" generated-path="IndexableTrait.html" hash="8ba1a5092134079a34c0a25a3d153480" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <trait namespace="WebIt4Me\Reader" line="5" package="Default">
+      <name>IndexableTrait</name>
+      <full_name>\WebIt4Me\Reader\IndexableTrait</full_name>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="5" description="Default"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader" line="8" package="Default">
+        <name>$index</name>
+        <full_name>\WebIt4Me\Reader\IndexableTrait::index</full_name>
+        <default></default>
+        <docblock line="8">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="8" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="15" package="Default">
+        <name>setIndex</name>
+        <full_name>\WebIt4Me\Reader\IndexableTrait::setIndex()</full_name>
+        <docblock line="15">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="15" description="" type="" variable="$index"/>
+          <tag name="return" line="15" description="" type="\WebIt4Me\Reader\IndexableTrait">
+            <type>\WebIt4Me\Reader\IndexableTrait</type>
+          </tag>
+          <tag name="throw" line="15" description="" type="\InvalidArgumentException">
+            <type>\InvalidArgumentException</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$index</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="29" package="Default">
+        <name>getIndex</name>
+        <full_name>\WebIt4Me\Reader\IndexableTrait::getIndex()</full_name>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="29" description="" type="integer|null">
+            <type>integer</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+      </method>
+    </trait>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="5" code="PPC:ERR-50010">No summary for trait ""</error>
+      <error line="15" code="PPC:ERR-50008">No summary for method setIndex()</error>
+      <error line="29" code="PPC:ERR-50008">No summary for method getIndex()</error>
+      <error line="8" code="PPC:ERR-50007">No summary for property $index</error>
+    </parse_markers>
+    <source>eJx9UMFqg0AQve9XzCGQKG1z6S21baAWhLSHIO0lIKuOcWHdyDqbBlr/va5uxKaQuezuzJv33r6Hp7qsGVO8wqbmGcInphHdv+FuizxHvWKMNBcEkcrxxFOJsX2ybwZdLX0fno9cg1AE/rLv1VocOSHMhN3o9h2wP6HD11zzyo3HpkYyWsGMStGMTSr14Qt2kTpyKfK13psKFYWnDGsSB+VwTtakUmRQGJXZGTRIveXFIOT1oMG1LVHAouCyQQiCAAohCXXS/cTBb+A12sThNvlYb6KXdRwm0XvseRMCW4M/hVc8LuYDIVSmIUjRJoV71HdzbzVytWy89gHcPg47wd8QbU1zGgja/wk7UCf1o4yUV3Pan3O6TGiq5AydBdtfLZ+h5Q==</source>
+  </file>
+  <file path="IterableTrait.php" generated-path="IterableTrait.html" hash="f86b99bffc2ec9a8c6940703e9d3a276" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <trait namespace="WebIt4Me\Reader" line="5" package="Default">
+      <name>IterableTrait</name>
+      <full_name>\WebIt4Me\Reader\IterableTrait</full_name>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="5" description="Default"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader" line="7" package="Default">
+        <name>$iterable</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::iterable</full_name>
+        <default></default>
+        <docblock line="7">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="WebIt4Me\Reader" line="9" package="Default">
+        <name>$pointer</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::pointer</full_name>
+        <default>0</default>
+        <docblock line="9">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="17" package="Default">
+        <name>current</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::current()</full_name>
+        <docblock line="17">
+          <description>(PHP 5 &amp;gt;= 5.0.0)&lt;br/&gt;
+Return the current element</description>
+          <long-description></long-description>
+          <tag name="link" line="17" description="http://php.net/manual/en/iterator.current.php" link="http://php.net/manual/en/iterator.current.php"/>
+          <tag name="return" line="17" description="Can return any type." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="28" package="Default">
+        <name>next</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::next()</full_name>
+        <docblock line="28">
+          <description>(PHP 5 &amp;gt;= 5.0.0)&lt;br/&gt;
+Move forward to next element</description>
+          <long-description></long-description>
+          <tag name="link" line="28" description="http://php.net/manual/en/iterator.next.php" link="http://php.net/manual/en/iterator.next.php"/>
+          <tag name="return" line="28" description="Any returned value is ignored." type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="39" package="Default">
+        <name>key</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::key()</full_name>
+        <docblock line="39">
+          <description>(PHP 5 &amp;gt;= 5.0.0)&lt;br/&gt;
+Return the key of the current element</description>
+          <long-description></long-description>
+          <tag name="link" line="39" description="http://php.net/manual/en/iterator.key.php" link="http://php.net/manual/en/iterator.key.php"/>
+          <tag name="return" line="39" description="scalar on success, or null on failure." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="51" package="Default">
+        <name>valid</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::valid()</full_name>
+        <docblock line="51">
+          <description>(PHP 5 &amp;gt;= 5.0.0)&lt;br/&gt;
+Checks if current position is valid</description>
+          <long-description></long-description>
+          <tag name="link" line="51" description="http://php.net/manual/en/iterator.valid.php" link="http://php.net/manual/en/iterator.valid.php"/>
+          <tag name="return" line="51" description="The return value will be casted to boolean and then evaluated.&#10;Returns true on success or false on failure." type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="62" package="Default">
+        <name>rewind</name>
+        <full_name>\WebIt4Me\Reader\IterableTrait::rewind()</full_name>
+        <docblock line="62">
+          <description>(PHP 5 &amp;gt;= 5.0.0)&lt;br/&gt;
+Rewind the Iterator to the first element</description>
+          <long-description></long-description>
+          <tag name="link" line="62" description="http://php.net/manual/en/iterator.rewind.php" link="http://php.net/manual/en/iterator.rewind.php"/>
+          <tag name="return" line="62" description="Any returned value is ignored." type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+    </trait>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="5" code="PPC:ERR-50010">No summary for trait ""</error>
+      <error line="7" code="PPC:ERR-50007">No summary for property $iterable</error>
+      <error line="9" code="PPC:ERR-50007">No summary for property $pointer</error>
+    </parse_markers>
+    <source>eJy1lE1P3DAQhu/5FXNA1e7SJnsoly7QVlzKAQkhpB5aDk4yIaP12pE92WVV8d87dhwKKnTLqs3Fsucjnmfe8fHHru2yzKgV+k5VCF+xPOf3F/j9ClWNbpFl7BQxnDM6VWq8DrvsRwbydY7WihEOKBnF+8l5Z8mICU5gnkzFbBZXmMHk8sslHMGbW16cwFE+z+fT49IVp6P9Crl3BrhFqHrn0DCgxpWso8cnTWYJLXP3oSikjtwgFytleqULNEW8FVuXp/A8lDqGuiH7iu6whjNlIB0oswXedpgnz2KoqC81VdD0pmKyZrzQZBqtA43wpSQH3JJ/dzpi+Zb2CcfNIvrfv5rIhV0jNNZtlKuBLRi825tJiH0OyNpSDZ8FwrAXOGulewTyQLfGOqz/TCbk/Q3L0/oPD/cF8EgSS9yCbf6FOiTTy8rwldLKgRTm+6pC79+CdWB6rcNZo0j3bodWJP8OnSQu+1I5a7FaSnuaBxKd9RT/LV2T9lH9WiYx6DkqpbUaZVquhfuomKiPDQmSUpqhPGNU5+iqTB3aZACDp7wLDwpK/fTATjL8YhwQN0p7/GvG8b4vUSbvkSc7ZnK6vyY3NFQ4vJGCL1Qf9g05v7csXcz7P0Z0yLxjSIc3e0By/xMJSdSr</source>
+  </file>
+  <file path="LoaderInterface.php" generated-path="LoaderInterface.html" hash="1e73abfe196510f838257aa905fa77b8" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <interface namespace="WebIt4Me\Reader" line="5" package="Default">
+      <extends>\Iterator</extends>
+      <name>LoaderInterface</name>
+      <full_name>\WebIt4Me\Reader\LoaderInterface</full_name>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="5" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="10" package="Default">
+        <name>__construct</name>
+        <full_name>\WebIt4Me\Reader\LoaderInterface::__construct()</full_name>
+        <docblock line="10">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="10" description="" type="string" variable="$filePath">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$filePath</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="15" package="Default">
+        <name>getColumnNames</name>
+        <full_name>\WebIt4Me\Reader\LoaderInterface::getColumnNames()</full_name>
+        <docblock line="15">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="15" description="" type="array&lt;mixed,string&gt;">
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="20" package="Default">
+        <name>readRow</name>
+        <full_name>\WebIt4Me\Reader\LoaderInterface::readRow()</full_name>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="20" description="" type="\WebIt4Me\Reader\RowInterface">
+            <type>\WebIt4Me\Reader\RowInterface</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="26" package="Default">
+        <name>readRowAt</name>
+        <full_name>\WebIt4Me\Reader\LoaderInterface::readRowAt()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="26" description="" type="integer" variable="$rowIndex">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="26" description="" type="\WebIt4Me\Reader\RowInterface">
+            <type>\WebIt4Me\Reader\RowInterface</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$rowIndex</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="32" package="Default">
+        <name>search</name>
+        <full_name>\WebIt4Me\Reader\LoaderInterface::search()</full_name>
+        <docblock line="32">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="32" description="" type="string" variable="$keyword">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="32" description="" type="array&lt;mixed,\WebIt4Me\Reader\RowInterface&gt;">
+            <type>array&lt;mixed,\WebIt4Me\Reader\RowInterface&gt;</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$keyword</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="38" package="Default">
+        <name>readAll</name>
+        <full_name>\WebIt4Me\Reader\LoaderInterface::readAll()</full_name>
+        <docblock line="38">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="38" description="" type="integer" variable="$keyword">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="38" description="" type="array&lt;mixed,\WebIt4Me\Reader\RowInterface&gt;">
+            <type>array&lt;mixed,\WebIt4Me\Reader\RowInterface&gt;</type>
+          </tag>
+        </docblock>
+      </method>
+    </interface>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="5" code="PPC:ERR-50009">No summary for interface ""</error>
+      <error line="10" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="15" code="PPC:ERR-50008">No summary for method getColumnNames()</error>
+      <error line="20" code="PPC:ERR-50008">No summary for method readRow()</error>
+      <error line="26" code="PPC:ERR-50008">No summary for method readRowAt()</error>
+      <error line="32" code="PPC:ERR-50008">No summary for method search()</error>
+      <error line="38" code="PPC:ERR-50008">No summary for method readAll()</error>
+    </parse_markers>
+    <source>eJylkDFPwzAQhXf/ihs6hCxd2ECCiilSQagLA0WV61waC+dsXc5qEeK/Y5cmA4J0qJeT73zf83u3d6ENSpHusA/aILzgtpLrR1yvUNfIN0pZEuQmz5Y+t6rxjgdBqntYV6mjxbP6VJDOvCyPFUq4D5p1B72wpR3MGuvwWUt7Gs+PNcStswaaSEasJ9hsjKe0EY0U48ZV+slvNqNEphP89W0SukN58C529JStFhO4ld+PFieRnBJKj/9k/dhO0cGMM6/Gw6U6i5TGwPpfckj6HT/2nusp0TOJ9ajZtMVAOuPycr1sc+FcjvNLfQNFsMNZ</source>
+  </file>
+  <file path="RowInterface.php" generated-path="RowInterface.html" hash="3c4da99c8e160819cf09ec3cf585284d" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <interface namespace="WebIt4Me\Reader" line="5" package="Default">
+      <extends>\Iterator</extends>
+      <extends>\Countable</extends>
+      <name>RowInterface</name>
+      <full_name>\WebIt4Me\Reader\RowInterface</full_name>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="5" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="13" package="Default">
+        <name>getIndex</name>
+        <full_name>\WebIt4Me\Reader\RowInterface::getIndex()</full_name>
+        <docblock line="13">
+          <description>Each row must be aware of its own index in the reader object.</description>
+          <long-description>This will be used to get specific row</long-description>
+          <tag name="see" line="13" description="" link="\WebIt4Me\Reader\ReaderInterface::readRowAt()"/>
+          <tag name="return" line="13" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="20" package="Default">
+        <name>getColumnNames</name>
+        <full_name>\WebIt4Me\Reader\RowInterface::getColumnNames()</full_name>
+        <docblock line="20">
+          <description>To return an zero based array to map column index with their name (title).</description>
+          <long-description>i.e. [0 =&gt; 'First Column', 1 =&gt; 'And the second']</long-description>
+          <tag name="return" line="20" description="" type="null|array">
+            <type>null</type>
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="25" package="Default">
+        <name>getColumns</name>
+        <full_name>\WebIt4Me\Reader\RowInterface::getColumns()</full_name>
+        <docblock line="25">
+          <description></description>
+          <long-description></long-description>
+          <tag name="return" line="25" description="" type="array&lt;mixed,\WebIt4Me\Reader\ColumnInterface&gt;">
+            <type>array&lt;mixed,\WebIt4Me\Reader\ColumnInterface&gt;</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="31" package="Default">
+        <name>getColumn</name>
+        <full_name>\WebIt4Me\Reader\RowInterface::getColumn()</full_name>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="31" description="" type="string" variable="$columnName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="31" description="" type="\WebIt4Me\Reader\ColumnInterface">
+            <type>\WebIt4Me\Reader\ColumnInterface</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$columnName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="37" package="Default">
+        <name>getColumnAt</name>
+        <full_name>\WebIt4Me\Reader\RowInterface::getColumnAt()</full_name>
+        <docblock line="37">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="37" description="" type="integer" variable="$columnIndex">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="37" description="" type="\WebIt4Me\Reader\ColumnsInterface">
+            <type>\WebIt4Me\Reader\ColumnsInterface</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$columnIndex</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="43" package="Default">
+        <name>toArray</name>
+        <full_name>\WebIt4Me\Reader\RowInterface::toArray()</full_name>
+        <docblock line="43">
+          <description>Returns a key/value set of all existing columns in the row</description>
+          <long-description></long-description>
+          <tag name="return" line="43" description="" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="WebIt4Me\Reader" line="49" package="Default">
+        <name>toString</name>
+        <full_name>\WebIt4Me\Reader\RowInterface::toString()</full_name>
+        <docblock line="49">
+          <description>Returns a string of all the column values, comma separated</description>
+          <long-description></long-description>
+          <tag name="return" line="49" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+    </interface>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="5" code="PPC:ERR-50009">No summary for interface ""</error>
+      <error line="25" code="PPC:ERR-50008">No summary for method getColumns()</error>
+      <error line="31" code="PPC:ERR-50008">No summary for method getColumn()</error>
+      <error line="37" code="PPC:ERR-50008">No summary for method getColumnAt()</error>
+    </parse_markers>
+    <source>eJyVU0uP0zAQvudXzAGpD1UtSJyW5VGtQOoBDmUlDts9TJzpxuDYkT0hXR7/HY+bhKoK6pJDLDvj7zWT67d1WWeZxYpCjYrgC+UbfvmRdlvCgvyrLNOWye/l29a1m2FDByZbBNht4gmy8wvY3bjGMuaGsp8ZxGc1n6cV5vAeVQnetVA1gSEnwBY9gduD5gCutaBtQYf4Bi4JfGIHl38lxcse5LbUAVptjAA0gQpgBw/EEGpSeq+VMPTF7wJFyQlnUH11JcDRx5qns6HQEzdeBHB3tEpr3eQmQu4bq1g7K0Qb0TidxVTO7N066FDQwg/yDnIUfeg9PorKCmtQzjRVb7TVXIpV7UHShylrNjQbvOolLeHuObx+A5MP2sfQbtL1yQJepMO1LVJUgZSzxeT+3I5tjPmV+C+5OgJ/khkY89YDHsuGLO/un4Y7jlmjxwoCe20f4JkaFFwgfRrl9ATw3+Sx3z1z6us4dfhP7jhZp6Aj9NsEHwDhGz2uvqNppIks/wLG0aaDDiypHFHC8EucjHY/axe7y24tNWMt+Cuj60LHL1zdpCZtYRG3VRXLSHJjKs5lHO9f0PE5FYmQ39kfgFNb+g==</source>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <package name="WebIt4Me" full_name="WebIt4Me">
+    <package name="Reader" full_name="WebIt4Me\Reader">
+      <package name="Csv" full_name="WebIt4Me\Reader\Csv"/>
+    </package>
+  </package>
+  <package name="global" full_name="global"/>
+  <namespace name="WebIt4Me" full_name="WebIt4Me">
+    <namespace name="Reader" full_name="WebIt4Me\Reader">
+      <namespace name="Csv" full_name="WebIt4Me\Reader\Csv"/>
+    </namespace>
+  </namespace>
+  <deprecated count="0"/>
+</project>

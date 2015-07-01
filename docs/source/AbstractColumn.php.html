@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <script
+            type="text/javascript"
+            src="../js/jquery-1.4.2.min.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shCore.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shBrushJScript.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shBrushPhp.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shBrushXml.js">
+        </script>
+        <link
+            href="../syntax_highlighter/styles/shCore.css" rel="stylesheet"
+            type="text/css"
+        />
+        <link
+            href="../syntax_highlighter/styles/shCoreEclipse.css"
+            rel="stylesheet" type="text/css"
+        />
+        <link
+            href="../syntax_highlighter/styles/shThemeWordpress.css"
+            rel="stylesheet" type="text/css"
+        />
+    </head>
+    <body>
+        <pre class="brush: php">&lt;?php
+
+namespace WebIt4Me\Reader;
+
+class AbstractColumn implements ColumnInterface
+{
+    use IndexableTrait;
+
+    /** @var string */
+    private $value;
+
+    /** @var string */
+    private $name;
+
+    /**
+     * @param int $index
+     * @param string $value
+     * @param null $name
+     */
+    public function __construct($index, $value, $name = null)
+    {
+        $this-&gt;setIndex($index);
+
+        $this-&gt;value = $value;
+
+        $this-&gt;setName($name);
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            $name = $this-&gt;makeUpName();
+        }
+
+        $this-&gt;name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this-&gt;name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this-&gt;value;
+    }
+
+    /**
+     * @return string
+     */
+    private function makeUpName()
+    {
+        return sprintf('Column %s', $this-&gt;index + 1);
+    }
+}
+</pre>
+        <script type="text/javascript">
+             SyntaxHighlighter.all();
+             jQuery('.gutter div').each(function(key, data){
+                jQuery(data).prepend('<a name="L'+jQuery(data).text()+'"/>');
+             });
+        </script>
+    </body>
+</html>
