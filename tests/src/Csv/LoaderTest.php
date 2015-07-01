@@ -76,6 +76,9 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
             trim(file($this->mockCsvFilePath)[4]),
             $searchResultWithMoreThanSingleRecord[1]->toString()
         );
+
+        $searchResult = $this->loader->search(['policyID' => '19']);
+        $a = $searchResult[0]->toArray();
     }
 
     public function test_readAll()

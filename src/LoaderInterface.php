@@ -21,10 +21,10 @@ interface LoaderInterface extends \Iterator
     public function readRowAt($rowIndex);
 
     /**
-     * @param string $keyword
+     * @param string|array $searchParams
      * @return RowInterface[]
      */
-    public function search($keyword);
+    public function search($searchParams);
 
     /**
      * @param int $keyword

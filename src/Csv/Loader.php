@@ -64,15 +64,20 @@ class Loader implements LoaderInterface
     }
 
     /**
-     * @param string $keyword
+     * @param string|array $searchParams
      * @return RowInterface[]
      */
-    public function search($keyword)
+    public function search($searchParams)
     {
         $matchingRows = [];
         foreach ($this->iterable as $row) {
-            foreach ($row as $column) {
-                if (strpos($column->getValue(), $keyword) !== false) {
+
+            if (is_array($searchParams)) {
+                if ($this->hasMatchOnSpecificColumns($row, $searchParams)) {
+                    $matchingRows[] = $row;
+                }
+            } else {
+                if ($this->hasMatchOnAnyColumn($row, $searchParams)) {
                     $matchingRows[] = $row;
                 }
             }
@@ -112,5 +117,38 @@ class Loader implements LoaderInterface
             $this->fileReader = new Reader($this->filePath);
         }
         return $this->fileReader;
+    }
+
+
+    /**
+     * @param RowInterface $row
+     * @param array $searchParams
+     * @return bool
+     */
+    private function hasMatchOnAnyColumn($row, $searchParams)
+    {
+        foreach ($row as $column) {
+            if (strpos($column->getValue(), $searchParams) !== false) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @param RowInterface $row
+     * @param array $searchParams
+     * @return bool
+     */
+    private function hasMatchOnSpecificColumns($row, $searchParams)
+    {
+        foreach ($searchParams as $name => $value) {
+
+            if (strpos($row->getColumn($name)->getValue(), $value) !== false) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
