@@ -1,5 +1,5 @@
 {
-  "name": "webit4me/reader",
+  "name": "WebIt4Me/reader",
   "description": "Simply put, a file reader, to be capable to digest different type of data structure. starting with csv",
   "minimum-stability": "stable",
   "license": "MIN",
