@@ -31,19 +31,6 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function test_readRow()
-    {
-        $this->assertEquals(
-            trim(file($this->mockCsvFilePath)[1]),
-            $this->loader->readRow()->toString()
-        );
-
-        $this->assertEquals(
-            trim(file($this->mockCsvFilePath)[2]),
-            $this->loader->readRow()->toString()
-        );
-    }
-
     public function test_readRowAt()
     {
         $this->assertEquals(
@@ -93,7 +80,7 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
 
     public function test_readAll()
     {
-        $all = $this->loader->readAll();
+        $all = $this->loader->readAllRows();
 
         $this->assertContainsOnlyInstancesOf(Row::class, $all);
 
