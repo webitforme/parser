@@ -39,6 +39,7 @@ class Loader implements LoaderInterface
     {
         $this->filePath = $filePath;
         $this->setColumnNames();
+        $this->readAllRows();
     }
 
     /**
@@ -47,29 +48,6 @@ class Loader implements LoaderInterface
     public function getColumnNames()
     {
         return $this->columnNames;
-    }
-
-    /**
-     * @return RowInterface
-     */
-    public function readRow()
-    {
-        $nextLine = $this->getFileReader()->readLine();
-
-        if (false === $nextLine) {
-            $this->reachedToLastLine = true;
-            return false;
-        }
-
-        $row = new Row(
-            count($this->iterable),
-            $nextLine,
-            $this->getColumnNames()
-        );
-
-        $this->iterable[] = $row;
-
-        return $row;
     }
 
     /**
@@ -82,14 +60,6 @@ class Loader implements LoaderInterface
             return $this->iterable[$rowIndex];
         }
 
-        $counter = count($this->iterable);
-        while (($row = $this->readRow()) !== false) {
-            if ($rowIndex === $counter) {
-                return $row;
-            }
-            $counter++;
-        }
-
         throw new \OutOfRangeException(sprintf(self::ERR_MSG_ROW_BAD_OFFSET, $rowIndex, count($this->iterable)));
     }
 
@@ -99,8 +69,6 @@ class Loader implements LoaderInterface
      */
     public function search($keyword)
     {
-        $this->loadAllIfNotYet();
-
         $matchingRows = [];
         foreach ($this->iterable as $row) {
             foreach ($row as $column) {
@@ -116,18 +84,18 @@ class Loader implements LoaderInterface
     /**
      * @return RowInterface[]
      */
-    public function readAll()
+    public function readAllRows()
     {
-        while ($this->readRow() !== false) ;
+        while (($nextLine = $this->getFileReader()->readLine()) !== false) {
+            $row = new Row(
+                count($this->iterable),
+                $nextLine,
+                $this->getColumnNames()
+            );
+            $this->iterable[] = $row;
+        }
 
         return $this->iterable;
-    }
-
-    private function loadAllIfNotYet()
-    {
-        if (!$this->reachedToLastLine) {
-            $this->readAll();
-        }
     }
 
     /**
