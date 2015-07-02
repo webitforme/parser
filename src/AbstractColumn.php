@@ -55,6 +55,16 @@ class AbstractColumn implements ColumnInterface
     }
 
     /**
+     * @param string $value
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+        return $this;
+    }
+
+    /**
      * @return string
      */
     private function makeUpName()
