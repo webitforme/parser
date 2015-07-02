@@ -105,6 +105,23 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function test_searchSpecificColumns()
+    {
+        $result = $this->loader->search(['policyID' => '119736', 'construction' => 'Concrete' ]);
+
+        $this->assertCount(2, $result);
+
+        $this->assertEquals(
+            trim(file($this->mockCsvFilePath)[1]),
+            $result[0]->toString()
+        );
+
+        $this->assertEquals(
+            trim(file($this->mockCsvFilePath)[6]),
+            $result[1]->toString()
+        );
+    }
+
     public function test_readAll()
     {
         $all = $this->loader->readAllRows();
