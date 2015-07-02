@@ -39,7 +39,7 @@ class Loader implements LoaderInterface
     {
         $this->filePath = $filePath;
         $this->setColumnNames();
-        $this->readAllRows();
+        $this->getRows();
     }
 
     /**
@@ -54,13 +54,30 @@ class Loader implements LoaderInterface
      * @param int $rowIndex
      * @return RowInterface
      */
-    public function readRowAt($rowIndex)
+    public function getRow($rowIndex)
     {
         if (isset($this->iterable[$rowIndex])) {
             return $this->iterable[$rowIndex];
         }
 
         throw new \OutOfRangeException(sprintf(self::ERR_MSG_ROW_BAD_OFFSET, $rowIndex, count($this->iterable)));
+    }
+
+    /**
+     * @return RowInterface[]
+     */
+    public function getRows()
+    {
+        while (($nextLine = $this->getFileReader()->readLine()) !== false) {
+            $row = new Row(
+                count($this->iterable),
+                $nextLine,
+                $this->getColumnNames()
+            );
+            $this->iterable[] = $row;
+        }
+
+        return $this->iterable;
     }
 
     /**
@@ -76,7 +93,9 @@ class Loader implements LoaderInterface
                 if ($this->hasMatchOnSpecificColumns($row, $searchParams)) {
                     $matchingRows[] = $row;
                 }
-            } else {
+            }
+
+            if (!is_array($searchParams)) {
                 if ($this->hasMatchOnAnyColumn($row, $searchParams)) {
                     $matchingRows[] = $row;
                 }
@@ -87,20 +106,17 @@ class Loader implements LoaderInterface
     }
 
     /**
-     * @return RowInterface[]
+     * @param $targetFile
      */
-    public function readAllRows()
+    public function saveAs($targetFile)
     {
-        while (($nextLine = $this->getFileReader()->readLine()) !== false) {
-            $row = new Row(
-                count($this->iterable),
-                $nextLine,
-                $this->getColumnNames()
-            );
-            $this->iterable[] = $row;
-        }
+        $writer = new Writer($targetFile);
 
-        return $this->iterable;
+        $writer->writeLine($this->getColumnNames());
+
+        foreach ($this->iterable as $row) {
+            $writer->writeRow($row);
+        }
     }
 
     /**
@@ -154,7 +170,9 @@ class Loader implements LoaderInterface
 
                 }
 
-            } else {
+            }
+
+            if (!is_array($value)) {
 
                 if (strpos($row->getColumn($name)->getValue(), $value) !== false) {
                     return true;

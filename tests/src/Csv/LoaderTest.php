@@ -35,14 +35,14 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             trim(file($this->mockCsvFilePath)[5]),
-            $this->loader->readRowAt(4)->toString()
+            $this->loader->getRow(4)->toString()
         );
 
         // this is to cover the cache mechanism which will use the already loaded row
         // e.g. reading row 1 after already read up to row 5 doesn't need reading line in the file
         $this->assertEquals(
             trim(file($this->mockCsvFilePath)[2]),
-            $this->loader->readRowAt(1)->toString()
+            $this->loader->getRow(1)->toString()
         );
 
         $incorrectRowIndex = 125;
@@ -53,7 +53,7 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
             sprintf(Loader::ERR_MSG_ROW_BAD_OFFSET, $incorrectRowIndex, $mockFileAvailableDataRows)
             );
 
-        $this->loader->readRowAt($incorrectRowIndex);
+        $this->loader->getRow($incorrectRowIndex);
     }
 
     public function test_search()
@@ -124,7 +124,7 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
 
     public function test_readAll()
     {
-        $all = $this->loader->readAllRows();
+        $all = $this->loader->getRows();
 
         $this->assertContainsOnlyInstancesOf(Row::class, $all);
 
@@ -135,5 +135,13 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
                 $row->toString()
             );
         }
+    }
+
+    public function test_saveAs()
+    {
+        $testFilePath = __DIR__ . '/../../mockCsvFiles/FL_insurance_sample_copy.csv';
+
+        $this->loader->getRow(0)->getColumnAt(0)->setValue('119736');
+        $this->loader->saveAs($this->mockCsvFilePath);
     }
 }
