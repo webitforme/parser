@@ -77,8 +77,32 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
             $searchResultWithMoreThanSingleRecord[1]->toString()
         );
 
-        $searchResult = $this->loader->search(['policyID' => '19']);
-        $a = $searchResult[0]->toArray();
+    }
+
+    public function test_searchSpecificColumn()
+    {
+        $result = $this->loader->search(['policyID' => '19']);
+
+        $this->assertCount(1, $result);
+
+        $this->assertEquals(
+            trim(file($this->mockCsvFilePath)[1]),
+            $result[0]->toString()
+        );
+
+        $result = $this->loader->search(['policyID' => ['19','20']]);
+
+        $this->assertCount(2, $result);
+
+        $this->assertEquals(
+            trim(file($this->mockCsvFilePath)[1]),
+            $result[0]->toString()
+        );
+
+        $this->assertEquals(
+            trim(file($this->mockCsvFilePath)[3]),
+            $result[1]->toString()
+        );
     }
 
     public function test_readAll()

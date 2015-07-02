@@ -144,9 +144,24 @@ class Loader implements LoaderInterface
     {
         foreach ($searchParams as $name => $value) {
 
-            if (strpos($row->getColumn($name)->getValue(), $value) !== false) {
-                return true;
+            if (is_array($value)) {
+
+                foreach ($value as $v) {
+
+                    if (strpos($row->getColumn($name)->getValue(), $v) !== false) {
+                        return true;
+                    }
+
+                }
+
+            } else {
+
+                if (strpos($row->getColumn($name)->getValue(), $value) !== false) {
+                    return true;
+                }
+
             }
+
         }
 
         return false;
