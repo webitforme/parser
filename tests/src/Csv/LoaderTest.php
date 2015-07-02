@@ -76,6 +76,50 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
             trim(file($this->mockCsvFilePath)[4]),
             $searchResultWithMoreThanSingleRecord[1]->toString()
         );
+
+    }
+
+    public function test_searchSpecificColumn()
+    {
+        $result = $this->loader->search(['policyID' => '19']);
+
+        $this->assertCount(1, $result);
+
+        $this->assertEquals(
+            trim(file($this->mockCsvFilePath)[1]),
+            $result[0]->toString()
+        );
+
+        $result = $this->loader->search(['policyID' => ['19','20']]);
+
+        $this->assertCount(2, $result);
+
+        $this->assertEquals(
+            trim(file($this->mockCsvFilePath)[1]),
+            $result[0]->toString()
+        );
+
+        $this->assertEquals(
+            trim(file($this->mockCsvFilePath)[3]),
+            $result[1]->toString()
+        );
+    }
+
+    public function test_searchSpecificColumns()
+    {
+        $result = $this->loader->search(['policyID' => '119736', 'construction' => 'Concrete' ]);
+
+        $this->assertCount(2, $result);
+
+        $this->assertEquals(
+            trim(file($this->mockCsvFilePath)[1]),
+            $result[0]->toString()
+        );
+
+        $this->assertEquals(
+            trim(file($this->mockCsvFilePath)[6]),
+            $result[1]->toString()
+        );
     }
 
     public function test_readAll()
