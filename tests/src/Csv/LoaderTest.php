@@ -141,7 +141,11 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
     {
         $testFilePath = __DIR__ . '/../../mockCsvFiles/FL_insurance_sample_copy.csv';
 
-        $this->loader->getRow(0)->getColumnAt(0)->setValue('119736');
-        $this->loader->saveAs($this->mockCsvFilePath);
+        $counter = 1;
+        foreach ($this->loader->getRows() as $row) {
+            $row->getColumnAt(0)->setValue($counter++);
+        }
+
+        $this->loader->saveAs($testFilePath);
     }
 }

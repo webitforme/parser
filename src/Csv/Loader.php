@@ -23,7 +23,7 @@ class Loader implements LoaderInterface
     /** @var string */
     private $filePath;
 
-    /** @var Reader */
+    /** @var CsvFileHandler */
     private $fileReader;
 
     /** @var  array */
@@ -39,7 +39,7 @@ class Loader implements LoaderInterface
     {
         $this->filePath = $filePath;
         $this->setColumnNames();
-        $this->getRows();
+        $this->readAllRows();
     }
 
     /**
@@ -68,6 +68,12 @@ class Loader implements LoaderInterface
      */
     public function getRows()
     {
+        return $this->iterable;
+    }
+
+    private function readAllRows()
+    {
+        $this->iterable = [];
         while (($nextLine = $this->getFileReader()->readLine()) !== false) {
             $row = new Row(
                 count($this->iterable),
@@ -76,8 +82,6 @@ class Loader implements LoaderInterface
             );
             $this->iterable[] = $row;
         }
-
-        return $this->iterable;
     }
 
     /**
@@ -110,11 +114,11 @@ class Loader implements LoaderInterface
      */
     public function saveAs($targetFile)
     {
-        $writer = new Writer($targetFile);
+        $writer = new CsvFileHandler($targetFile, "w");
 
         $writer->writeLine($this->getColumnNames());
 
-        foreach ($this->iterable as $row) {
+        foreach ($this->getRows() as $row) {
             $writer->writeRow($row);
         }
     }
@@ -127,10 +131,13 @@ class Loader implements LoaderInterface
         $this->columnNames = $this->getFileReader()->readLine();
     }
 
+    /**
+     * @return CsvFileHandler
+     */
     private function getFileReader()
     {
         if (is_null($this->fileReader)) {
-            $this->fileReader = new Reader($this->filePath);
+            $this->fileReader = new CsvFileHandler($this->filePath, "r");
         }
         return $this->fileReader;
     }
