@@ -3,14 +3,15 @@
 namespace WebIt4MeTest;
 
 use Symfony\Component\Config\Definition\Exception\Exception;
+use WebIt4Me\Reader\AbstractFileHandler;
 use WebIt4Me\Reader\AbstractFileReader;
 
-class AbstractFileReaderTest extends \PHPUnit_Framework_TestCase
+class AbstractFileHandlerTest extends \PHPUnit_Framework_TestCase
 {
     /** @var string */
     private $mockCsvFilePath;
 
-    /** @var AbstractFileReader $fileReader */
+    /** @var AbstractFileHandler $fileReader */
     private static $fileReader;
 
     public function setUp()
@@ -19,8 +20,8 @@ class AbstractFileReaderTest extends \PHPUnit_Framework_TestCase
 
         if (is_null(self::$fileReader)) {
             self::$fileReader = $this->getMockForAbstractClass(
-                AbstractFileReader::class,
-                [$this->mockCsvFilePath]
+                AbstractFileHandler::class,
+                [$this->mockCsvFilePath, "r"]
             );
         }
     }
@@ -31,12 +32,12 @@ class AbstractFileReaderTest extends \PHPUnit_Framework_TestCase
 
         $this->setExpectedException(
             \Exception::class,
-            sprintf(AbstractFileReader::ERR_MSG_FAILED_TO_OPEN_FILE, $badFilePath)
+            sprintf(AbstractFileHandler::ERR_MSG_FAILED_TO_OPEN_FILE, $badFilePath, "r")
         );
 
         $this->getMockForAbstractClass(
-            AbstractFileReader::class,
-            [$badFilePath]
+            AbstractFileHandler::class,
+            [$badFilePath, "r"]
         );
     }
 

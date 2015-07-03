@@ -35,14 +35,14 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             trim(file($this->mockCsvFilePath)[5]),
-            $this->loader->readRowAt(4)->toString()
+            $this->loader->getRow(4)->toString()
         );
 
         // this is to cover the cache mechanism which will use the already loaded row
         // e.g. reading row 1 after already read up to row 5 doesn't need reading line in the file
         $this->assertEquals(
             trim(file($this->mockCsvFilePath)[2]),
-            $this->loader->readRowAt(1)->toString()
+            $this->loader->getRow(1)->toString()
         );
 
         $incorrectRowIndex = 125;
@@ -53,7 +53,7 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
             sprintf(Loader::ERR_MSG_ROW_BAD_OFFSET, $incorrectRowIndex, $mockFileAvailableDataRows)
             );
 
-        $this->loader->readRowAt($incorrectRowIndex);
+        $this->loader->getRow($incorrectRowIndex);
     }
 
     public function test_search()
@@ -76,11 +76,55 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
             trim(file($this->mockCsvFilePath)[4]),
             $searchResultWithMoreThanSingleRecord[1]->toString()
         );
+
+    }
+
+    public function test_searchSpecificColumn()
+    {
+        $result = $this->loader->search(['policyID' => '19']);
+
+        $this->assertCount(1, $result);
+
+        $this->assertEquals(
+            trim(file($this->mockCsvFilePath)[1]),
+            $result[0]->toString()
+        );
+
+        $result = $this->loader->search(['policyID' => ['19','20']]);
+
+        $this->assertCount(2, $result);
+
+        $this->assertEquals(
+            trim(file($this->mockCsvFilePath)[1]),
+            $result[0]->toString()
+        );
+
+        $this->assertEquals(
+            trim(file($this->mockCsvFilePath)[3]),
+            $result[1]->toString()
+        );
+    }
+
+    public function test_searchSpecificColumns()
+    {
+        $result = $this->loader->search(['policyID' => '119736', 'construction' => 'Concrete' ]);
+
+        $this->assertCount(2, $result);
+
+        $this->assertEquals(
+            trim(file($this->mockCsvFilePath)[1]),
+            $result[0]->toString()
+        );
+
+        $this->assertEquals(
+            trim(file($this->mockCsvFilePath)[6]),
+            $result[1]->toString()
+        );
     }
 
     public function test_readAll()
     {
-        $all = $this->loader->readAllRows();
+        $all = $this->loader->getRows();
 
         $this->assertContainsOnlyInstancesOf(Row::class, $all);
 
@@ -91,5 +135,17 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
                 $row->toString()
             );
         }
+    }
+
+    public function test_saveAs()
+    {
+        $testFilePath = __DIR__ . '/../../mockCsvFiles/FL_insurance_sample_copy.csv';
+
+        $counter = 1;
+        foreach ($this->loader->getRows() as $row) {
+            $row->getColumnAt(0)->setValue($counter++);
+        }
+
+        $this->loader->saveAs($testFilePath);
     }
 }

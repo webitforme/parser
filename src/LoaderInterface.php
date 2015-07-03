@@ -18,17 +18,17 @@ interface LoaderInterface extends \Iterator
      * @param int $rowIndex
      * @return RowInterface
      */
-    public function readRowAt($rowIndex);
+    public function getRow($rowIndex);
 
     /**
-     * @param string $keyword
+     * @param string|array $searchParams
      * @return RowInterface[]
      */
-    public function search($keyword);
+    public function search($searchParams);
 
     /**
      * @param int $keyword
      * @return RowInterface[]
      */
-    public function readAllRows();
+    public function getRows();
 }

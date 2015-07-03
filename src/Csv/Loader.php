@@ -23,7 +23,7 @@ class Loader implements LoaderInterface
     /** @var string */
     private $filePath;
 
-    /** @var Reader */
+    /** @var CsvFileHandler */
     private $fileReader;
 
     /** @var  array */
@@ -54,7 +54,7 @@ class Loader implements LoaderInterface
      * @param int $rowIndex
      * @return RowInterface
      */
-    public function readRowAt($rowIndex)
+    public function getRow($rowIndex)
     {
         if (isset($this->iterable[$rowIndex])) {
             return $this->iterable[$rowIndex];
@@ -64,15 +64,43 @@ class Loader implements LoaderInterface
     }
 
     /**
-     * @param string $keyword
      * @return RowInterface[]
      */
-    public function search($keyword)
+    public function getRows()
+    {
+        return $this->iterable;
+    }
+
+    private function readAllRows()
+    {
+        $this->iterable = [];
+        while (($nextLine = $this->getFileReader()->readLine()) !== false) {
+            $row = new Row(
+                count($this->iterable),
+                $nextLine,
+                $this->getColumnNames()
+            );
+            $this->iterable[] = $row;
+        }
+    }
+
+    /**
+     * @param string|array $searchParams
+     * @return RowInterface[]
+     */
+    public function search($searchParams)
     {
         $matchingRows = [];
         foreach ($this->iterable as $row) {
-            foreach ($row as $column) {
-                if (strpos($column->getValue(), $keyword) !== false) {
+
+            if (is_array($searchParams)) {
+                if ($this->hasMatchOnSpecificColumns($row, $searchParams)) {
+                    $matchingRows[] = $row;
+                }
+            }
+
+            if (!is_array($searchParams)) {
+                if ($this->hasMatchOnAnyColumn($row, $searchParams)) {
                     $matchingRows[] = $row;
                 }
             }
@@ -82,20 +110,17 @@ class Loader implements LoaderInterface
     }
 
     /**
-     * @return RowInterface[]
+     * @param $targetFile
      */
-    public function readAllRows()
+    public function saveAs($targetFile)
     {
-        while (($nextLine = $this->getFileReader()->readLine()) !== false) {
-            $row = new Row(
-                count($this->iterable),
-                $nextLine,
-                $this->getColumnNames()
-            );
-            $this->iterable[] = $row;
-        }
+        $writer = new CsvFileHandler($targetFile, "w");
 
-        return $this->iterable;
+        $writer->writeLine($this->getColumnNames());
+
+        foreach ($this->getRows() as $row) {
+            $writer->writeRow($row);
+        }
     }
 
     /**
@@ -106,11 +131,64 @@ class Loader implements LoaderInterface
         $this->columnNames = $this->getFileReader()->readLine();
     }
 
+    /**
+     * @return CsvFileHandler
+     */
     private function getFileReader()
     {
         if (is_null($this->fileReader)) {
-            $this->fileReader = new Reader($this->filePath);
+            $this->fileReader = new CsvFileHandler($this->filePath, "r");
         }
         return $this->fileReader;
+    }
+
+
+    /**
+     * @param RowInterface $row
+     * @param array $searchParams
+     * @return bool
+     */
+    private function hasMatchOnAnyColumn($row, $searchParams)
+    {
+        foreach ($row as $column) {
+            if (strpos($column->getValue(), $searchParams) !== false) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @param RowInterface $row
+     * @param array $searchParams
+     * @return bool
+     */
+    private function hasMatchOnSpecificColumns($row, $searchParams)
+    {
+        foreach ($searchParams as $name => $value) {
+
+            if (is_array($value)) {
+
+                foreach ($value as $v) {
+
+                    if (strpos($row->getColumn($name)->getValue(), $v) !== false) {
+                        return true;
+                    }
+
+                }
+
+            }
+
+            if (!is_array($value)) {
+
+                if (strpos($row->getColumn($name)->getValue(), $value) !== false) {
+                    return true;
+                }
+
+            }
+
+        }
+
+        return false;
     }
 }

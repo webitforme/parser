@@ -32,7 +32,7 @@ interface RowInterface extends \Iterator, \Countable
 
     /**
      * @param int $columnIndex
-     * @return ColumnsInterface
+     * @return ColumnInterface
      */
     public function getColumnAt($columnIndex);
 
