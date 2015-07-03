@@ -2,6 +2,11 @@
 
 namespace WebIt4Me\Reader;
 
+/**
+ * Interface RowInterface
+ *
+ * @author Ali Bahman <abn@webit4.me>
+ */
 interface RowInterface extends \Iterator, \Countable
 {
     /**
@@ -25,16 +30,16 @@ interface RowInterface extends \Iterator, \Countable
     public function getColumns();
 
     /**
-     * @param string $columnName
+     * @param string $name
      * @return ColumnInterface
      */
-    public function getColumn($columnName);
+    public function getColumn($name);
 
     /**
-     * @param int $columnIndex
+     * @param int $index
      * @return ColumnInterface
      */
-    public function getColumnAt($columnIndex);
+    public function getColumnAt($index);
 
     /**
      * Returns a key/value set of all existing columns in the row

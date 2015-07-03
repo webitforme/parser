@@ -2,6 +2,11 @@
 
 namespace WebIt4Me\Reader;
 
+/**
+ * Interface ParserInterface
+ *
+ * @author Ali Bahman <abn@webit4.me>
+ */
 interface ParserInterface extends \Iterator
 {
     /**
@@ -15,10 +20,10 @@ interface ParserInterface extends \Iterator
     public function getColumnNames();
 
     /**
-     * @param int $rowIndex
+     * @param int $index
      * @return RowInterface
      */
-    public function getRow($rowIndex);
+    public function getRow($index);
 
     /**
      * @param string|array $searchParams

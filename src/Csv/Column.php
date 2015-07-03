@@ -6,7 +6,8 @@ use WebIt4Me\Reader\AbstractColumn;
 
 /**
  * Class Column
- * @package WebIt4Me\Reader\Csv
+ *
+ * @author Ali Bahman <abn@webit4.me>
  */
 class Column extends AbstractColumn
 {

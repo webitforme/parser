@@ -10,10 +10,11 @@ use WebIt4Me\Reader\RowInterface;
 
 /**
  * Class Parser
- * @package WebIt4Me\Reader\Csv
  *
  * @property-read Row[] $iterable handles in IterableTrait
  * @see IterableTrait
+ *
+ * @author Ali Bahman <abn@webit4.me>
  */
 class Parser implements ParserInterface
 {
@@ -27,9 +28,6 @@ class Parser implements ParserInterface
     /** @var  array */
     private $columnNames;
 
-    /** @var bool */
-    private $reachedToLastLine = false;
-
     /**
      * @param FileHandlerInterface $fileHandler
      */
@@ -41,7 +39,9 @@ class Parser implements ParserInterface
     }
 
     /**
-     * @return string[]|null
+     * Return an array of all the column names in the subject CSV
+     *
+     * @return string[]
      */
     public function getColumnNames()
     {
@@ -49,19 +49,23 @@ class Parser implements ParserInterface
     }
 
     /**
-     * @param int $rowIndex
+     * Retrieve a row by its index
+     *
+     * @param int $index
      * @return RowInterface
      */
-    public function getRow($rowIndex)
+    public function getRow($index)
     {
-        if (isset($this->iterable[$rowIndex])) {
-            return $this->iterable[$rowIndex];
+        if (isset($this->iterable[$index])) {
+            return $this->iterable[$index];
         }
 
-        throw new \OutOfRangeException(sprintf(self::ERR_MSG_ROW_BAD_OFFSET, $rowIndex, count($this->iterable)));
+        throw new \OutOfRangeException(sprintf(self::ERR_MSG_ROW_BAD_OFFSET, $index, count($this->iterable)));
     }
 
     /**
+     * Return all the existing rows as an array
+     *
      * @return RowInterface[]
      */
     public function getRows()
@@ -69,21 +73,22 @@ class Parser implements ParserInterface
         return $this->iterable;
     }
 
-    private function readAllRows()
-    {
-        $this->iterable = [];
-        while (($nextLine = $this->fileHandler->readLine()) !== false) {
-            $row = new Row(
-                count($this->iterable),
-                $nextLine,
-                $this->getColumnNames()
-            );
-            $this->iterable[] = $row;
-        }
-    }
-
     /**
-     * @param string|array $searchParams
+     * Search and return array of matching rows
+     * possible search parameters:
+     * - string : to be searched on all the existing columns
+     *            e.g. 'something to lookup'
+     * - array :
+     *     - without Keys : to check all its elements values against all the existing columns
+     *                      e.g. ['Book','Table']
+     *                           to look for 'Book' and 'Table' in the all columns
+     *     - with keys    : to look up column names, match with the array keys for the ke value
+     *                      e.g. ['Product' => 'Ball', 'Size' => 'Small']
+     *                           to find a rows with word 'Ball' in their 'Product' column and 'Small' in their 'Size' column
+     *                      e.g. ['Product'' => ['Ball', 'Box']]
+     *                           to find rows with word 'Ball' or 'Box' in their 'Product' column
+     *
+     * @param array|string $searchParams
      * @return RowInterface[]
      */
     public function search($searchParams)
@@ -108,14 +113,8 @@ class Parser implements ParserInterface
     }
 
     /**
-     * This method has to be run first think before reading/storing any other line
-     */
-    private function setColumnNames()
-    {
-        $this->columnNames = $this->fileHandler->readLine();
-    }
-
-    /**
+     * Helper to search based on the given string
+     *
      * @param RowInterface $row
      * @param array $searchParams
      * @return bool
@@ -131,6 +130,8 @@ class Parser implements ParserInterface
     }
 
     /**
+     * Helper to search based on the given array
+     *
      * @param RowInterface $row
      * @param array $searchParams
      * @return bool
@@ -162,5 +163,30 @@ class Parser implements ParserInterface
         }
 
         return false;
+    }
+
+    /**
+     * This method has to be run first thing and before readAllRows() any other line
+     */
+    private function setColumnNames()
+    {
+        $this->columnNames = $this->fileHandler->readLine();
+    }
+
+    /**
+     * To go through all lines in the CSV file,
+     * convert them to Row object and inject them into the Parser's iterable array
+     */
+    private function readAllRows()
+    {
+        $this->iterable = [];
+        while (($nextLine = $this->fileHandler->readLine()) !== false) {
+            $row = new Row(
+                count($this->iterable),
+                $nextLine,
+                $this->getColumnNames()
+            );
+            $this->iterable[] = $row;
+        }
     }
 }

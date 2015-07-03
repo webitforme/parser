@@ -12,13 +12,6 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
     {
         $mockCsvFile = __DIR__ . '/../../mockCsvFiles/FL_insurance_sample_short.csv';
         $parser = Factory::open($mockCsvFile);
-
-        $parser->getRow(1)->getColumnAt(1)->setValue('FM');
-        /** @var Row $row */
-        foreach ($parser as $row) {
-            echo $row->toString() . PHP_EOL;
-        }
-
         $this->assertInstanceOf(Parser::class, $parser);
     }
 

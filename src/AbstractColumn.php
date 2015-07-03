@@ -2,6 +2,11 @@
 
 namespace WebIt4Me\Reader;
 
+/**
+ * Class AbstractColumn
+ *
+ * @author Ali Bahman <abn@webit4.me>
+ */
 class AbstractColumn implements ColumnInterface
 {
     use IndexableTrait;

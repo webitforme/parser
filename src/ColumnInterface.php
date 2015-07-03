@@ -2,6 +2,11 @@
 
 namespace WebIt4Me\Reader;
 
+/**
+ * Interface ColumnInterface
+ *
+ * @author Ali Bahman <abn@webit4.me>
+ */
 interface ColumnInterface
 {
     /**

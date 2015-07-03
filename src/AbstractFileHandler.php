@@ -2,6 +2,11 @@
 
 namespace WebIt4Me\Reader;
 
+/**
+ * Class AbstractFileHandler
+ *
+ * @author Ali Bahman <abn@webit4.me>
+ */
 abstract class AbstractFileHandler implements FileHandlerInterface
 {
     const LINE_LENGTH = 4096;
@@ -28,7 +33,7 @@ abstract class AbstractFileHandler implements FileHandlerInterface
     {
         if (is_null($this->handler)) {
 
-            if (($handle = @fopen($filePath, "r")) === false) {
+            if (($handle = @fopen($filePath, $mode)) === false) {
                 throw new \Exception(sprintf(self::ERR_MSG_FAILED_TO_OPEN_FILE, $filePath, $mode));
             }
 

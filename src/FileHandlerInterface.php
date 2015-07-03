@@ -2,6 +2,11 @@
 
 namespace WebIt4Me\Reader;
 
+/**
+ * Interface FileHandlerInterface
+ *
+ * @author Ali Bahman <abn@webit4.me>
+ */
 interface FileHandlerInterface
 {
     /**
