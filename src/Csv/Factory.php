@@ -1,35 +1,25 @@
 <?php
 
-namespace WebIt4Me\Reader\Csv\Factory;
-
-use WebIt4Me\Reader\Csv\Parser;
+namespace WebIt4Me\Reader\Csv;
 
 class Factory
 {
-    /** @var string */
-    private static $csvFilePath;
-
-    /** @var Parser */
-    private static $parser;
-
     public static function open($csvFilePath)
     {
-        self::$csvFilePath = $csvFilePath;
-
-        self::$parser = new Parser(
-            new CsvFileHandler(slef::$csvFilePath, "r")
+        $parser = new Parser(
+            new CsvFileHandler($csvFilePath, "r")
         );
 
-        return self::$parser;
+        return $parser;
     }
 
-    public static function save($csvFilePath)
+    public static function save(Parser $parser, $csvFilePath)
     {
         $writer = new CsvFileHandler($csvFilePath, "w");
 
-        $writer->writeLine(self::$parser->getColumnNames());
+        $writer->writeLine($parser->getColumnNames());
 
-        foreach (self::$parser->getRows() as $row) {
+        foreach ($parser->getRows() as $row) {
             $writer->writeRow($row);
         }
     }
