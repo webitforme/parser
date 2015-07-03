@@ -15,10 +15,10 @@ composer require  webit4me/reader dev-master
 ## Usage
 
 ```php
-$loader = new Parser($this->mockCsvFilePath);
+$parser = new Parser($this->mockCsvFilePath);
 
 // to iterate through all rows and print their column name and values
-foreach ($loader->readAllRows() as $row) {
+foreach ($parser->readAllRows() as $row) {
 
     foreach($row as $column) {
 
@@ -30,7 +30,7 @@ foreach ($loader->readAllRows() as $row) {
 
 // to search for a text in all rows and print all matching rows as string
 
-$rows = $loader->search("30");
+$rows = $parser->search("30");
 foreach ($rows as $row) {
     echo $row->toString() . PHP_EOL;
 }
