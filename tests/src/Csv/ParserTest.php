@@ -2,10 +2,11 @@
 
 namespace WebIt4MeTest\Reader\Csv;
 
-use WebIt4Me\Reader\Csv\Loader;
+use WebIt4Me\Reader\Csv\CsvFileHandler;
+use WebIt4Me\Reader\Csv\Parser;
 use WebIt4Me\Reader\Csv\Row;
 
-class LoaderTest extends \PHPUnit_Framework_TestCase
+class ParserTest extends \PHPUnit_Framework_TestCase
 {
     /** @var string */
     private $mockCsvFilePath;
@@ -13,14 +14,16 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
     /** @var \SplFileObject */
     private $mockFileObject;
 
-    /** @var Loader */
+    /** @var Parser */
     private $loader;
 
     public function setUp()
     {
         $this->mockCsvFilePath = __DIR__ . '/../../mockCsvFiles/FL_insurance_sample_short.csv';
 
-        $this->loader = new Loader($this->mockCsvFilePath); //$this->getMock(Loader::class, [$this->mockCsvFilePath]);
+        $this->loader = new Parser(
+            new CsvFileHandler($this->mockCsvFilePath, "r")
+        );
     }
 
     public function test_getColumnNames()
@@ -50,7 +53,7 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
 
         $this->setExpectedException(
             \OutOfRangeException::class,
-            sprintf(Loader::ERR_MSG_ROW_BAD_OFFSET, $incorrectRowIndex, $mockFileAvailableDataRows)
+            sprintf(Parser::ERR_MSG_ROW_BAD_OFFSET, $incorrectRowIndex, $mockFileAvailableDataRows)
             );
 
         $this->loader->getRow($incorrectRowIndex);
@@ -135,17 +138,5 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
                 $row->toString()
             );
         }
-    }
-
-    public function test_saveAs()
-    {
-        $testFilePath = __DIR__ . '/../../mockCsvFiles/FL_insurance_sample_copy.csv';
-
-        $counter = 1;
-        foreach ($this->loader->getRows() as $row) {
-            $row->getColumnAt(0)->setValue($counter++);
-        }
-
-        $this->loader->saveAs($testFilePath);
     }
 }

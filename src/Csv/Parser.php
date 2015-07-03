@@ -3,28 +3,26 @@
 namespace WebIt4Me\Reader\Csv;
 
 use WebIt4Me\Reader\AbstractFileReader;
+use WebIt4Me\Reader\FileHandlerInterface;
 use WebIt4Me\Reader\IterableTrait;
-use WebIt4Me\Reader\LoaderInterface;
+use WebIt4Me\Reader\ParserInterface;
 use WebIt4Me\Reader\RowInterface;
 
 /**
- * Class Loader
+ * Class Parser
  * @package WebIt4Me\Reader\Csv
  *
  * @property-read Row[] $iterable handles in IterableTrait
  * @see IterableTrait
  */
-class Loader implements LoaderInterface
+class Parser implements ParserInterface
 {
     use IterableTrait;
 
     const ERR_MSG_ROW_BAD_OFFSET = 'There is no index %d since the are only %d rows in the CSV file';
 
-    /** @var string */
-    private $filePath;
-
     /** @var CsvFileHandler */
-    private $fileReader;
+    private $fileHandler;
 
     /** @var  array */
     private $columnNames;
@@ -33,11 +31,11 @@ class Loader implements LoaderInterface
     private $reachedToLastLine = false;
 
     /**
-     * @param string $filePath
+     * @param FileHandlerInterface $fileHandler
      */
-    public function __construct($filePath)
+    public function __construct(FileHandlerInterface $fileHandler)
     {
-        $this->filePath = $filePath;
+        $this->fileHandler = $fileHandler;
         $this->setColumnNames();
         $this->readAllRows();
     }
@@ -74,7 +72,7 @@ class Loader implements LoaderInterface
     private function readAllRows()
     {
         $this->iterable = [];
-        while (($nextLine = $this->getFileReader()->readLine()) !== false) {
+        while (($nextLine = $this->fileHandler->readLine()) !== false) {
             $row = new Row(
                 count($this->iterable),
                 $nextLine,
@@ -110,38 +108,12 @@ class Loader implements LoaderInterface
     }
 
     /**
-     * @param $targetFile
-     */
-    public function saveAs($targetFile)
-    {
-        $writer = new CsvFileHandler($targetFile, "w");
-
-        $writer->writeLine($this->getColumnNames());
-
-        foreach ($this->getRows() as $row) {
-            $writer->writeRow($row);
-        }
-    }
-
-    /**
      * This method has to be run first think before reading/storing any other line
      */
     private function setColumnNames()
     {
-        $this->columnNames = $this->getFileReader()->readLine();
+        $this->columnNames = $this->fileHandler->readLine();
     }
-
-    /**
-     * @return CsvFileHandler
-     */
-    private function getFileReader()
-    {
-        if (is_null($this->fileReader)) {
-            $this->fileReader = new CsvFileHandler($this->filePath, "r");
-        }
-        return $this->fileReader;
-    }
-
 
     /**
      * @param RowInterface $row

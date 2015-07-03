@@ -15,7 +15,7 @@ composer require  webit4me/reader dev-master
 ## Usage
 
 ```php
-$loader = new Loader($this->mockCsvFilePath);
+$loader = new Parser($this->mockCsvFilePath);
 
 // to iterate through all rows and print their column name and values
 foreach ($loader->readAllRows() as $row) {

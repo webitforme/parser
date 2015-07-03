@@ -4,7 +4,7 @@ namespace WebIt4Me\Reader;
 
 abstract class AbstractFileHandler implements FileHandlerInterface
 {
-    const LINE_LENGTH =4096;
+    const LINE_LENGTH = 4096;
 
     const ERR_MSG_FAILED_TO_OPEN_FILE = 'Failed to open "%s" in "%s" mode';
 

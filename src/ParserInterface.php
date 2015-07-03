@@ -2,12 +2,12 @@
 
 namespace WebIt4Me\Reader;
 
-interface LoaderInterface extends \Iterator
+interface ParserInterface extends \Iterator
 {
     /**
-     * @param string $filePath
+     * @param FileHandlerInterface $fileHandler
      */
-    public function __construct($filePath);
+    public function __construct(FileHandlerInterface $fileHandler);
 
     /**
      * @return string[]
