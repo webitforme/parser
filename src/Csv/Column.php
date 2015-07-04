@@ -1,8 +1,8 @@
 <?php
 
-namespace WebIt4Me\Reader\Csv;
+namespace WebIt4Me\Parser\Csv;
 
-use WebIt4Me\Reader\AbstractColumn;
+use WebIt4Me\Parser\AbstractColumn;
 
 /**
  * Class Column

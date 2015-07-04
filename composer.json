@@ -17,8 +17,8 @@
   },
   "autoload":{
     "psr-4":{
-      "WebIt4Me\\Reader\\": "src/",
-      "WebIt4MeTest\\Reader\\": "tests/src"
+      "WebIt4Me\\Parser\\": "src/",
+      "WebIt4MeTest\\Parser\\": "tests/src"
     }
   }
 }

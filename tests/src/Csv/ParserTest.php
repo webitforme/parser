@@ -2,9 +2,9 @@
 
 namespace WebIt4MeTest\Reader\Csv;
 
-use WebIt4Me\Reader\Csv\CsvFileHandler;
-use WebIt4Me\Reader\Csv\Parser;
-use WebIt4Me\Reader\Csv\Row;
+use WebIt4Me\Parser\Csv\CsvFileHandler;
+use WebIt4Me\Parser\Csv\Parser;
+use WebIt4Me\Parser\Csv\Row;
 
 class ParserTest extends \PHPUnit_Framework_TestCase
 {

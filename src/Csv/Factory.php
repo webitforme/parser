@@ -1,6 +1,6 @@
 <?php
 
-namespace WebIt4Me\Reader\Csv;
+namespace WebIt4Me\Parser\Csv;
 
 /**
  * Class Factory

@@ -1,10 +1,10 @@
 <?php
 
-namespace WebIt4MeTest;
+namespace WebIt4MeTest\Parser;
 
 use Symfony\Component\Config\Definition\Exception\Exception;
-use WebIt4Me\Reader\AbstractFileHandler;
-use WebIt4Me\Reader\AbstractFileReader;
+use WebIt4Me\Parser\AbstractFileHandler;
+use WebIt4Me\Parser\AbstractFileReader;
 
 class AbstractFileHandlerTest extends \PHPUnit_Framework_TestCase
 {

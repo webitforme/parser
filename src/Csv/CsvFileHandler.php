@@ -1,9 +1,9 @@
 <?php
 
-namespace WebIt4Me\Reader\Csv;
+namespace WebIt4Me\Parser\Csv;
 
-use WebIt4Me\Reader\AbstractFileHandler;
-use WebIt4Me\Reader\RowInterface;
+use WebIt4Me\Parser\AbstractFileHandler;
+use WebIt4Me\Parser\RowInterface;
 
 /**
  * Class CsvFileHandler

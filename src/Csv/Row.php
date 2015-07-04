@@ -1,12 +1,12 @@
 <?php
 
-namespace WebIt4Me\Reader\Csv;
+namespace WebIt4Me\Parser\Csv;
 
-use WebIt4Me\Reader\ColumnInterface;
-use WebIt4Me\Reader\ColumnsInterface;
-use WebIt4Me\Reader\IndexableTrait;
-use WebIt4Me\Reader\IterableTrait;
-use WebIt4Me\Reader\RowInterface;
+use WebIt4Me\Parser\ColumnInterface;
+use WebIt4Me\Parser\ColumnsInterface;
+use WebIt4Me\Parser\IndexableTrait;
+use WebIt4Me\Parser\IterableTrait;
+use WebIt4Me\Parser\RowInterface;
 
 /**
  * Class Row

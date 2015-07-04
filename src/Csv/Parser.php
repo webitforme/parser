@@ -1,12 +1,12 @@
 <?php
 
-namespace WebIt4Me\Reader\Csv;
+namespace WebIt4Me\Parser\Csv;
 
-use WebIt4Me\Reader\AbstractFileReader;
-use WebIt4Me\Reader\FileHandlerInterface;
-use WebIt4Me\Reader\IterableTrait;
-use WebIt4Me\Reader\ParserInterface;
-use WebIt4Me\Reader\RowInterface;
+use WebIt4Me\Parser\AbstractFileReader;
+use WebIt4Me\Parser\FileHandlerInterface;
+use WebIt4Me\Parser\IterableTrait;
+use WebIt4Me\Parser\ParserInterface;
+use WebIt4Me\Parser\RowInterface;
 
 /**
  * Class Parser

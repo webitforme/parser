@@ -1,6 +1,6 @@
 <?php
 
-namespace WebIt4Me\Reader;
+namespace WebIt4Me\Parser;
 
 /**
  * Interface ColumnInterface

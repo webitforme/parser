@@ -2,9 +2,9 @@
 
 namespace WebIt4MeTest\Reader\Csv;
 
-use WebIt4Me\Reader\Csv\Factory;
-use WebIt4Me\Reader\Csv\Parser;
-use WebIt4Me\Reader\Csv\Row;
+use WebIt4Me\Parser\Csv\Factory;
+use WebIt4Me\Parser\Csv\Parser;
+use WebIt4Me\Parser\Csv\Row;
 
 class FactoryTest extends \PHPUnit_Framework_TestCase
 {
