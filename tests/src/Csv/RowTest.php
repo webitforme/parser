@@ -2,8 +2,8 @@
 
 namespace WebIt4MeTest\Reader\Csv;
 
-use WebIt4Me\Reader\Csv\Column;
-use WebIt4Me\Reader\Csv\Row;
+use WebIt4Me\Parser\Csv\Column;
+use WebIt4Me\Parser\Csv\Row;
 
 class RowTest extends \PHPUnit_Framework_TestCase
 {

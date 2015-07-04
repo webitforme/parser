@@ -1,13 +1,18 @@
 <?php
 
-namespace WebIt4Me\Reader;
+namespace WebIt4Me\Parser;
 
-interface LoaderInterface extends \Iterator
+/**
+ * Interface ParserInterface
+ *
+ * @author Ali Bahman <abn@webit4.me>
+ */
+interface ParserInterface extends \Iterator
 {
     /**
-     * @param string $filePath
+     * @param FileHandlerInterface $fileHandler
      */
-    public function __construct($filePath);
+    public function __construct(FileHandlerInterface $fileHandler);
 
     /**
      * @return string[]
@@ -15,10 +20,10 @@ interface LoaderInterface extends \Iterator
     public function getColumnNames();
 
     /**
-     * @param int $rowIndex
+     * @param int $index
      * @return RowInterface
      */
-    public function getRow($rowIndex);
+    public function getRow($index);
 
     /**
      * @param string|array $searchParams

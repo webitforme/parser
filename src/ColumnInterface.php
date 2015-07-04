@@ -1,7 +1,12 @@
 <?php
 
-namespace WebIt4Me\Reader;
+namespace WebIt4Me\Parser;
 
+/**
+ * Interface ColumnInterface
+ *
+ * @author Ali Bahman <abn@webit4.me>
+ */
 interface ColumnInterface
 {
     /**

@@ -1,16 +1,22 @@
 <?php
 
-namespace WebIt4Me\Reader\Csv;
+namespace WebIt4Me\Parser\Csv;
 
-use WebIt4Me\Reader\AbstractFileHandler;
-use WebIt4Me\Reader\RowInterface;
+use WebIt4Me\Parser\AbstractFileHandler;
+use WebIt4Me\Parser\RowInterface;
 
+/**
+ * Class CsvFileHandler
+ *
+ * @author Ali Bahman <abn@webit4.me>
+ */
 class CsvFileHandler extends AbstractFileHandler
 {
     const DELIMITER = ',';
 
     /**
-     * Returns an array of all values in the next line or false if its end of the file
+     * Return an array of all values in the next line or false if its end of the file
+     *
      * @return array|false
      */
     public function readLine()
@@ -21,6 +27,8 @@ class CsvFileHandler extends AbstractFileHandler
     }
 
     /**
+     * Write the given array as comma separated values in the next line
+     *
      * @param string[] $data
      * @return int
      */
@@ -30,6 +38,8 @@ class CsvFileHandler extends AbstractFileHandler
     }
 
     /**
+     * Write the given row as comma separated values in the next line
+     *
      * @param RowInterface $row
      * @return int
      */
