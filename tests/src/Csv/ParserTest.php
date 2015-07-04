@@ -2,10 +2,11 @@
 
 namespace WebIt4MeTest\Reader\Csv;
 
-use WebIt4Me\Reader\Csv\Loader;
-use WebIt4Me\Reader\Csv\Row;
+use WebIt4Me\Parser\Csv\CsvFileHandler;
+use WebIt4Me\Parser\Csv\Parser;
+use WebIt4Me\Parser\Csv\Row;
 
-class LoaderTest extends \PHPUnit_Framework_TestCase
+class ParserTest extends \PHPUnit_Framework_TestCase
 {
     /** @var string */
     private $mockCsvFilePath;
@@ -13,21 +14,23 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
     /** @var \SplFileObject */
     private $mockFileObject;
 
-    /** @var Loader */
-    private $loader;
+    /** @var Parser */
+    private $parser;
 
     public function setUp()
     {
         $this->mockCsvFilePath = __DIR__ . '/../../mockCsvFiles/FL_insurance_sample_short.csv';
 
-        $this->loader = new Loader($this->mockCsvFilePath); //$this->getMock(Loader::class, [$this->mockCsvFilePath]);
+        $this->parser = new Parser(
+            new CsvFileHandler($this->mockCsvFilePath, "r")
+        );
     }
 
     public function test_getColumnNames()
     {
         $this->assertEquals(
             explode(',', trim(file($this->mockCsvFilePath)[0])),
-            $this->loader->getColumnNames()
+            $this->parser->getColumnNames()
         );
     }
 
@@ -35,14 +38,14 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             trim(file($this->mockCsvFilePath)[5]),
-            $this->loader->getRow(4)->toString()
+            $this->parser->getRow(4)->toString()
         );
 
         // this is to cover the cache mechanism which will use the already loaded row
         // e.g. reading row 1 after already read up to row 5 doesn't need reading line in the file
         $this->assertEquals(
             trim(file($this->mockCsvFilePath)[2]),
-            $this->loader->getRow(1)->toString()
+            $this->parser->getRow(1)->toString()
         );
 
         $incorrectRowIndex = 125;
@@ -50,20 +53,20 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
 
         $this->setExpectedException(
             \OutOfRangeException::class,
-            sprintf(Loader::ERR_MSG_ROW_BAD_OFFSET, $incorrectRowIndex, $mockFileAvailableDataRows)
+            sprintf(Parser::ERR_MSG_ROW_BAD_OFFSET, $incorrectRowIndex, $mockFileAvailableDataRows)
             );
 
-        $this->loader->getRow($incorrectRowIndex);
+        $this->parser->getRow($incorrectRowIndex);
     }
 
     public function test_search()
     {
         $this->assertEquals(
             trim(file($this->mockCsvFilePath)[4]),
-            $this->loader->search('30.063236')[0]->toString()
+            $this->parser->search('30.063236')[0]->toString()
         );
 
-        $searchResultWithMoreThanSingleRecord = $this->loader->search('-81.707');
+        $searchResultWithMoreThanSingleRecord = $this->parser->search('-81.707');
 
         $this->assertContainsOnlyInstancesOf(Row::class, $searchResultWithMoreThanSingleRecord);
 
@@ -81,7 +84,7 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
 
     public function test_searchSpecificColumn()
     {
-        $result = $this->loader->search(['policyID' => '19']);
+        $result = $this->parser->search(['policyID' => '19']);
 
         $this->assertCount(1, $result);
 
@@ -90,7 +93,7 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
             $result[0]->toString()
         );
 
-        $result = $this->loader->search(['policyID' => ['19','20']]);
+        $result = $this->parser->search(['policyID' => ['19','20']]);
 
         $this->assertCount(2, $result);
 
@@ -107,7 +110,7 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
 
     public function test_searchSpecificColumns()
     {
-        $result = $this->loader->search(['policyID' => '119736', 'construction' => 'Concrete' ]);
+        $result = $this->parser->search(['policyID' => '119736', 'construction' => 'Concrete' ]);
 
         $this->assertCount(2, $result);
 
@@ -124,7 +127,7 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
 
     public function test_readAll()
     {
-        $all = $this->loader->getRows();
+        $all = $this->parser->getRows();
 
         $this->assertContainsOnlyInstancesOf(Row::class, $all);
 
@@ -135,13 +138,5 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
                 $row->toString()
             );
         }
-    }
-
-    public function test_saveAs()
-    {
-        $testFilePath = __DIR__ . '/../../mockCsvFiles/FL_insurance_sample_copy.csv';
-
-        $this->loader->getRow(0)->getColumnAt(0)->setValue('119736');
-        $this->loader->saveAs($this->mockCsvFilePath);
     }
 }

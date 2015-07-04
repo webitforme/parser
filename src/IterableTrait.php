@@ -1,7 +1,12 @@
 <?php
 
-namespace WebIt4Me\Reader;
+namespace WebIt4Me\Parser;
 
+/**
+ * Class IterableTrait
+ *
+ * @author Ali Bahman <abn@webit4.me>
+ */
 trait IterableTrait
 {
     private $iterable;

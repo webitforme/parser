@@ -1,7 +1,12 @@
 <?php
 
-namespace WebIt4Me\Reader;
+namespace WebIt4Me\Parser;
 
+/**
+ * Class AbstractColumn
+ *
+ * @author Ali Bahman <abn@webit4.me>
+ */
 class AbstractColumn implements ColumnInterface
 {
     use IndexableTrait;

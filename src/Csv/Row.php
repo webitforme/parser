@@ -1,18 +1,20 @@
 <?php
 
-namespace WebIt4Me\Reader\Csv;
+namespace WebIt4Me\Parser\Csv;
 
-use WebIt4Me\Reader\ColumnInterface;
-use WebIt4Me\Reader\ColumnsInterface;
-use WebIt4Me\Reader\IndexableTrait;
-use WebIt4Me\Reader\IterableTrait;
-use WebIt4Me\Reader\RowInterface;
+use WebIt4Me\Parser\ColumnInterface;
+use WebIt4Me\Parser\ColumnsInterface;
+use WebIt4Me\Parser\IndexableTrait;
+use WebIt4Me\Parser\IterableTrait;
+use WebIt4Me\Parser\RowInterface;
 
 /**
  * Class Row
- * @package WebIt4Me\Reader\Csv
+ *
  * @property-read Column[] $iterable handles in IterableTrait
  * @see IterableTrait
+ *
+ * @author Ali Bahman <abn@webit4.me>
  */
 class Row implements RowInterface
 {
@@ -40,8 +42,9 @@ class Row implements RowInterface
     }
 
     /**
-     * To return an zero based array to map column index with their name (title).
+     * To return a zero based array to map column index with their name (title).
      * i.e. [0 => 'First Column', 1 => 'And the second']
+     *
      * @return null|array
      */
     public function getColumnNames()
@@ -52,6 +55,7 @@ class Row implements RowInterface
 
     /**
      * Return row's all columns
+     *
      * @return ColumnInterface[]
      */
     public function getColumns()
@@ -62,38 +66,40 @@ class Row implements RowInterface
     /**
      * Return the column with the matching name
      *
-     * @param string $columnName
+     * @param string $name
      * @return ColumnInterface
      * @throw \OutOfRangeException
      */
-    public function getColumn($columnName)
+    public function getColumn($name)
     {
         foreach ($this as $column) {
-            if ($column->getName() === $columnName) {
+            if ($column->getName() === $name) {
                 return $column;
             }
         }
 
-        throw new \OutOfRangeException (sprintf(self::ERR_MSG_BAD_NAME, $columnName));
+        throw new \OutOfRangeException (sprintf(self::ERR_MSG_BAD_NAME, $name));
     }
 
     /**
-     * Return a column based on its name or null if column with the given name is not exist
-     * @param int $columnIndex
+     * Return a column based on its index
+     *
+     * @param int $index
      * @return ColumnInterface
+     * @throw \OutOfRangeException
      */
-    public function getColumnAt($columnIndex)
+    public function getColumnAt($index)
     {
-        if (!isset($this->iterable[$columnIndex])) {
-            throw new \OutOfRangeException (sprintf(self::ERR_MSG_BAD_NAME, $columnIndex, $this->count()));
+        if (!isset($this->iterable[$index])) {
+            throw new \OutOfRangeException (sprintf(self::ERR_MSG_BAD_NAME, $index, $this->count()));
         }
 
-        return $this->iterable[$columnIndex];
+        return $this->iterable[$index];
     }
 
     /**
-     * Count row's columns
-     * @link http://php.net/manual/en/countable.count.php
+     * Return number of row's columns
+     *
      * @return int
      */
     public function count()
@@ -102,7 +108,8 @@ class Row implements RowInterface
     }
 
     /**
-     * Receives a list of values for all columns and create Column object for each and store it
+     * To create Column objects based on the provided array
+     *
      * @param array $columnValues
      */
     private function setColumns($columnValues)
@@ -121,7 +128,8 @@ class Row implements RowInterface
     }
 
     /**
-     * Return name only if one been provided
+     * Return column name, only if one has been provided
+     *
      * @param int $index
      * @return string|null
      */
@@ -133,7 +141,8 @@ class Row implements RowInterface
     }
 
     /**
-     * Returns a key/value set of all existing columns in the row
+     * Return a key/value set of all existing columns in the row
+     *
      * @return array
      */
     public function toArray()
@@ -149,7 +158,8 @@ class Row implements RowInterface
     }
 
     /**
-     * Returns a string of all the column values, comma separated
+     * Return a string consist of all the column values, comma separated
+     *
      * @return string
      */
     public function toString()
