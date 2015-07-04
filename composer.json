@@ -1,6 +1,6 @@
 {
-  "name": "webit4me/reader",
-  "description": "Simply put, a file reader, to be capable to digest different type of data structure. starting with csv",
+  "name": "webit4me/parser",
+  "description": "Simply put, a parser to be capable to digest different type of data structure, starting with CSV",
   "minimum-stability": "stable",
   "license": "MIN",
   "authors": [

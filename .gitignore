@@ -6,6 +6,4 @@ composer.lock
 vendor/
 
 tests/logs
-
-
-
+tests/mockCsvFiles/FL_insurance_sample_copy.csv
