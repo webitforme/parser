@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/webit4me/reader.svg?branch=master)](https://travis-ci.org/webit4me/reader)
-[![Coverage Status](https://coveralls.io/repos/webit4me/reader/badge.svg)](https://coveralls.io/r/webit4me/reader)
+[![Build Status](https://travis-ci.org/webit4me/parser.svg?branch=develop)](https://travis-ci.org/webit4me/parser)
+[![Coverage Status](https://coveralls.io/repos/webit4me/parser/badge.svg)](https://coveralls.io/r/webit4me/parser)
 
 # reader
 Simply put, a file reader, to be capable to digest different type of data file structures. starting with csv.
