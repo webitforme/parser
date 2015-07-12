@@ -18,8 +18,6 @@ use WebIt4Me\Parser\RowInterface;
  */
 class Parser implements ParserInterface
 {
-    use IterableTrait;
-
     const ERR_MSG_ROW_BAD_OFFSET = 'There is no index %d since the are only %d rows in the CSV file';
 
     /** @var CsvFileHandler */
@@ -28,6 +26,8 @@ class Parser implements ParserInterface
     /** @var  array */
     private $columnNames;
 
+    private static $rowIndex = 0;
+
     /**
      * @param FileHandlerInterface $fileHandler
      */
@@ -35,7 +35,6 @@ class Parser implements ParserInterface
     {
         $this->fileHandler = $fileHandler;
         $this->setColumnNames();
-        $this->readAllRows();
     }
 
     /**
@@ -56,11 +55,18 @@ class Parser implements ParserInterface
      */
     public function getRow($index)
     {
-        if (isset($this->iterable[$index])) {
-            return $this->iterable[$index];
+        $this->rewind();
+
+        for ($i = -1; $i <= $index ; $i++ ){
+            $row = $this->read();
+
+            if (false === $row) {
+                throw new \OutOfRangeException(sprintf(self::ERR_MSG_ROW_BAD_OFFSET, $index, self::$rowIndex));
+            }
+
         }
 
-        throw new \OutOfRangeException(sprintf(self::ERR_MSG_ROW_BAD_OFFSET, $index, count($this->iterable)));
+        return $row;
     }
 
     /**
@@ -93,9 +99,11 @@ class Parser implements ParserInterface
      */
     public function search($searchParams)
     {
-        $matchingRows = [];
-        foreach ($this->iterable as $row) {
+        $this->rewind();
 
+        $matchingRows = [];
+
+        while (false !== ($row = $this->read())) {
             if (is_array($searchParams)) {
                 if ($this->hasMatchOnSpecificColumns($row, $searchParams)) {
                     $matchingRows[] = $row;
@@ -112,6 +120,22 @@ class Parser implements ParserInterface
         return $matchingRows;
     }
 
+    public function read()
+    {
+
+        if (($nextLine = $this->fileHandler->readLine()) !== false) {
+
+            $row = new Row(
+                self::$rowIndex++,
+                $nextLine,
+                $this->getColumnNames()
+            );
+        }else{
+            $row = false;
+        }
+
+        return $row;
+    }
     /**
      * Helper to search based on the given string
      *
@@ -188,5 +212,11 @@ class Parser implements ParserInterface
             );
             $this->iterable[] = $row;
         }
+    }
+
+    private function rewind()
+    {
+        self::$rowIndex = -1;
+        $this->fileHandler->rewind();
     }
 }

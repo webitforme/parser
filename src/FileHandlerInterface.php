@@ -15,6 +15,12 @@ interface FileHandlerInterface
      */
     public function __construct($filePath, $mode);
 
+
+    /**
+     * To pot the pointer in the beginning of the file
+     */
+    public function rewind();
+
     /**
      * @return string
      */

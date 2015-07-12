@@ -43,6 +43,15 @@ abstract class AbstractFileHandler implements FileHandlerInterface
     }
 
     /**
+     * To pot the pointer in the beginning of the file
+     */
+    public function rewind()
+    {
+        fseek($this->handler, 1);
+    }
+
+
+    /**
      * @return string
      */
     public function readLine()

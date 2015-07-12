@@ -7,7 +7,7 @@ namespace WebIt4Me\Parser;
  *
  * @author Ali Bahman <abn@webit4.me>
  */
-interface ParserInterface extends \Iterator
+interface ParserInterface //extends \Iterator
 {
     /**
      * @param FileHandlerInterface $fileHandler
