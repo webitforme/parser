@@ -28,6 +28,8 @@ class Parser implements ParserInterface
 
     private static $rowIndex = 0;
 
+    private $currentRow;
+
     /**
      * @param FileHandlerInterface $fileHandler
      */
@@ -57,26 +59,16 @@ class Parser implements ParserInterface
     {
         $this->rewind();
 
-        for ($i = -1; $i <= $index ; $i++ ){
-            $row = $this->read();
+        for ($i = 0; $i < $index ; $i++ ){
+            $row = $this->readNextLine();
 
             if (false === $row) {
-                throw new \OutOfRangeException(sprintf(self::ERR_MSG_ROW_BAD_OFFSET, $index, self::$rowIndex));
+                throw new \OutOfRangeException(sprintf(self::ERR_MSG_ROW_BAD_OFFSET, $index , $i));
             }
 
         }
 
         return $row;
-    }
-
-    /**
-     * Return all the existing rows as an array
-     *
-     * @return RowInterface[]
-     */
-    public function getRows()
-    {
-        return $this->iterable;
     }
 
     /**
@@ -103,7 +95,7 @@ class Parser implements ParserInterface
 
         $matchingRows = [];
 
-        while (false !== ($row = $this->read())) {
+        while (false !== ($row = $this->readNextLine())) {
             if (is_array($searchParams)) {
                 if ($this->hasMatchOnSpecificColumns($row, $searchParams)) {
                     $matchingRows[] = $row;
@@ -120,22 +112,100 @@ class Parser implements ParserInterface
         return $matchingRows;
     }
 
-    public function read()
+    /**
+     * Return the latest row created based on the last read line
+     *
+     * (PHP 5 &gt;= 5.0.0)<br/>
+     * Return the current element
+     * @link http://php.net/manual/en/iterator.current.php
+     * @return Row
+     */
+    public function current()
+    {
+        if (is_null($this->currentRow)) {
+            $this->readNextLine();
+        }
+
+        return $this->currentRow;
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.0.0)<br/>
+     * Move forward to next element
+     * @link http://php.net/manual/en/iterator.next.php
+     * @return void Any returned value is ignored.
+     */
+    public function next()
+    {
+        $this->readNextLine();
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.0.0)<br/>
+     * Rewind the Iterator to the first element
+     * @link http://php.net/manual/en/iterator.rewind.php
+     * @return void Any returned value is ignored.
+     */
+    public function rewind()
+    {
+        self::$rowIndex = -1;
+        $this->fileHandler->rewind();
+        $this->fileHandler->readLine();
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.0.0)<br/>
+     * Checks if current position is valid
+     * @link http://php.net/manual/en/iterator.valid.php
+     * @return boolean The return value will be casted to boolean and then evaluated.
+     * Returns true on success or false on failure.
+     */
+    public function valid()
+    {
+        return !$this->fileHandler->isEndOfFile();
+    }
+
+
+    /**
+     * (PHP 5 &gt;= 5.0.0)<br/>
+     * Return the key of the current element
+     * @link http://php.net/manual/en/iterator.key.php
+     * @return mixed scalar on success, or null on failure.
+     */
+    public function key()
+    {
+        return self::$rowIndex;
+    }
+
+
+    /**
+     * Read the next line from the file and create a row based on it.
+     * Return the row or
+     * Return false if its end of the file
+     *
+     * @return bool|Row
+     */
+    private function readNextLine()
     {
 
         if (($nextLine = $this->fileHandler->readLine()) !== false) {
 
             $row = new Row(
-                self::$rowIndex++,
+                $this->fileHandler->getPointerPosition(),
                 $nextLine,
                 $this->getColumnNames()
             );
+
+            self::$rowIndex++;
         }else{
             $row = false;
         }
 
-        return $row;
+        $this->currentRow = $row;
+
+        return $this->currentRow = $row;
     }
+
     /**
      * Helper to search based on the given string
      *
@@ -212,11 +282,5 @@ class Parser implements ParserInterface
             );
             $this->iterable[] = $row;
         }
-    }
-
-    private function rewind()
-    {
-        self::$rowIndex = -1;
-        $this->fileHandler->rewind();
     }
 }

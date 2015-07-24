@@ -47,7 +47,7 @@ abstract class AbstractFileHandler implements FileHandlerInterface
      */
     public function rewind()
     {
-        fseek($this->handler, 1);
+        fseek($this->handler, 0);
     }
 
 

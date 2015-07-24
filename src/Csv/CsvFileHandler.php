@@ -47,4 +47,17 @@ class CsvFileHandler extends AbstractFileHandler
     {
         return $this->writeLine($row->toArray());
     }
+
+    public function getPointerPosition()
+    {
+        return ftell($this->handler);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEndOfFile()
+    {
+        return feof($this->handler);
+    }
 }

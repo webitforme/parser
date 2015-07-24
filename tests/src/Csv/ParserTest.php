@@ -38,14 +38,14 @@ class ParserTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             trim(file($this->mockCsvFilePath)[5]),
-            $this->parser->getRow(4)->toString()
+            $this->parser->getRow(5)->toString()
         );
 
         // this is to cover the cache mechanism which will use the already loaded row
         // e.g. reading row 1 after already read up to row 5 doesn't need reading line in the file
         $this->assertEquals(
             trim(file($this->mockCsvFilePath)[2]),
-            $this->parser->getRow(1)->toString()
+            $this->parser->getRow(2)->toString()
         );
 
         $incorrectRowIndex = 125;
@@ -123,20 +123,5 @@ class ParserTest extends \PHPUnit_Framework_TestCase
             trim(file($this->mockCsvFilePath)[6]),
             $result[1]->toString()
         );
-    }
-
-    public function test_readAll()
-    {
-        $all = $this->parser->getRows();
-
-        $this->assertContainsOnlyInstancesOf(Row::class, $all);
-
-        $lineNumber = 1;
-        foreach ($all as $row) {
-            $this->assertEquals(
-                trim(file($this->mockCsvFilePath)[$lineNumber++]),
-                $row->toString()
-            );
-        }
     }
 }

@@ -13,14 +13,14 @@ class RowTest extends \PHPUnit_Framework_TestCase
     public function test_initRowWithColumnNames($data)
     {
         $row = new Row(
-            $data['index'],
+            $data['position'],
             $data['columnValues'],
             $data['columnNames']
         );
 
         $this->assertEquals(
-            $data['index'],
-            $row->getIndex()
+            $data['position'],
+            $row->getPosition()
         );
 
         $this->assertEquals(
@@ -53,13 +53,13 @@ class RowTest extends \PHPUnit_Framework_TestCase
     public function test_initRowWithoutColumnNames($data)
     {
         $row = new Row(
-            $data['index'],
+            $data['position'],
             $data['columnValues']
         );
 
         $this->assertEquals(
-            $data['index'],
-            $row->getIndex()
+            $data['position'],
+            $row->getPosition()
         );
 
         $this->assertNull($row->getColumnNames());
@@ -82,6 +82,12 @@ class RowTest extends \PHPUnit_Framework_TestCase
             $this->assertEquals($name, $row->getColumn($name)->getName());
             $this->assertEquals($data['columnValues'][$counter++], $row->getColumn($name)->getValue());
         }
+    }
+
+    public function test_setPositionValidation()
+    {
+        $this->setExpectedException(\InvalidArgumentException::class, Row::ERR_MSG_INVALID_POSITION);
+        new Row('invalid', [], []);
     }
 
     public function test_exceptionOnBadColumnName()
@@ -136,7 +142,7 @@ class RowTest extends \PHPUnit_Framework_TestCase
         return [
             [
                 [
-                    'index' => 0,
+                    'position' => 0,
                     'columnValues' => [
                         'value for the first column',
                         'value for the second column',

@@ -17,7 +17,7 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
 
     public function test_save()
     {
-        $this->markTestSkipped('cant save during lazy loading');
+//        $this->markTestSkipped('cant save during lazy loading');
 
         $mockCsvFile = __DIR__ . '/../../mockCsvFiles/FL_insurance_sample_short.csv';
         $newCsvFile = __DIR__ . '/../../mockCsvFiles/FL_insurance_sample_copy.csv';
@@ -27,9 +27,12 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
 
         /** @var Row $row */
         foreach ($parser as $row) {
-            $row->getColumnAt(0)->setValue($counter++);
+
+            echo $row->toString() . PHP_EOL;
+
+//            $row->getColumnAt(0)->setValue($counter++);
         }
 
-        Factory::save($parser, $newCsvFile);
+//        Factory::save($parser, $newCsvFile);
     }
 }

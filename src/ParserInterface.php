@@ -7,7 +7,7 @@ namespace WebIt4Me\Parser;
  *
  * @author Ali Bahman <abn@webit4.me>
  */
-interface ParserInterface //extends \Iterator
+interface ParserInterface extends \Iterator
 {
     /**
      * @param FileHandlerInterface $fileHandler
@@ -32,8 +32,7 @@ interface ParserInterface //extends \Iterator
     public function search($searchParams);
 
     /**
-     * @param int $keyword
-     * @return RowInterface[]
+     * @return RowInterface
      */
-    public function getRows();
+    public function current();
 }

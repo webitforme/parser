@@ -10,12 +10,12 @@ namespace WebIt4Me\Parser;
 interface RowInterface extends \Iterator, \Countable
 {
     /**
-     * Each row must be aware of its own index in the reader object.
+     * Each row must be aware of its own position in the reader object.
      * This will be used to get specific row
      * @see ReaderInterface::readRowAt()
      * @return int
      */
-    public function getIndex();
+    public function getPosition();
 
     /**
      * To return an zero based array to map column index with their name (title).

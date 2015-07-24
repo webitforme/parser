@@ -9,13 +9,14 @@ namespace WebIt4Me\Parser;
  */
 class AbstractColumn implements ColumnInterface
 {
-    use IndexableTrait;
-
-    /** @var string */
-    private $value;
+    /** @var int */
+    private $index;
 
     /** @var string */
     private $name;
+
+    /** @var string */
+    private $value;
 
     /**
      * @param int $index
@@ -29,6 +30,30 @@ class AbstractColumn implements ColumnInterface
         $this->value = $value;
 
         $this->setName($name);
+    }
+
+    /**
+     * @param $index
+     * @return $this
+     * @throw \InvalidArgumentException
+     */
+    public function setIndex($index)
+    {
+        if (false === filter_var($index, FILTER_VALIDATE_INT)) {
+            throw new \InvalidArgumentException('$index must be integer.');
+        }
+
+        $this->index = $index;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getIndex()
+    {
+        return $this->index;
     }
 
     /**
